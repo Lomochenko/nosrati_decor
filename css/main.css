@@ -809,6 +809,10 @@ a {
 .bottom-0 {
   bottom: 0px;
 }
+.bottom-1 {
+  bottom: 1.25rem;
+}
+
 
 .bottom-10 {
   bottom: 2.5rem;
@@ -843,7 +847,7 @@ a {
 }
 
 .left-1\/2 {
-  right: 50%;
+  left: 50%;
 }
 
 .left-1\/3 {
