@@ -569,6 +569,9 @@ p {
   font-weight: 400;
   color: #181818b3;
 }
+.auto-color{
+  color: #181818b3;
+}
 
 @media (min-width: 768px) {
   p {
@@ -586,6 +589,10 @@ p {
 }
 
 :is(:where(.dark) p) {
+  color: rgb(237 240 245 / 0.7);
+}
+
+:is(:where(.dark) .auto-color) {
   color: rgb(237 240 245 / 0.7);
 }
 
@@ -809,6 +816,7 @@ a {
 .bottom-0 {
   bottom: 0px;
 }
+
 .bottom-1 {
   bottom: 1.35rem;
 }
@@ -817,6 +825,7 @@ a {
 .bottom-10 {
   bottom: 2.5rem;
 }
+
 .bottom-11 {
   bottom: 4rem;
 }
@@ -953,9 +962,11 @@ a {
 .top-10 {
   top: 2.5rem;
 }
-.top-23{
+
+.top-23 {
   top: 5rem;
 }
+
 .top-24 {
   top: 6rem;
 }
@@ -7734,9 +7745,15 @@ canvas {
   .md\:absolute {
     position: absolute;
   }
-.min-md\:text-left {
+
+  .min-md\:text-left {
     text-align: left;
   }
+
+  .min-md\:text-right {
+    text-align: right;
+  }
+
   .md\:-left-11 {
     right: -2.75rem;
   }
