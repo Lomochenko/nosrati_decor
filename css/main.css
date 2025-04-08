@@ -3850,6 +3850,12 @@ a {
 .pt-32 {
   padding-top: 8rem;
 }
+.pt-37{
+  padding-top: 13rem;
+}
+.pb-32{
+  padding-bottom: 8rem;
+}
 
 .pt-36 {
   padding-top: 9rem;
@@ -8560,6 +8566,9 @@ canvas {
   }
 
   .md\:pb-32 {
+    padding-bottom: 8rem;
+  }
+  .md\:pt-32 {
     padding-bottom: 8rem;
   }
 
