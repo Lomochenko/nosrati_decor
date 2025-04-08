@@ -7734,7 +7734,9 @@ canvas {
   .md\:absolute {
     position: absolute;
   }
-
+.min-md\:text-left {
+    text-align: left;
+  }
   .md\:-left-11 {
     right: -2.75rem;
   }
