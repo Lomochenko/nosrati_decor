@@ -439,7 +439,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Satoshi';
+  font-family: 'amiri';
   --tw-text-opacity: 1;
   color: rgb(24 24 24 / var(--tw-text-opacity));
 }
@@ -3988,8 +3988,11 @@ a {
   font-family: 'Instrument Serif', system-ui;
 }
 
+.font-amiri {
+  font-family: 'amiri';
+}
 .font-satoshi {
-  font-family: 'Satoshi';
+  font-family: 'satoshi';
 }
 
 .text-2xl {
@@ -4732,11 +4735,16 @@ img {
 }
 
 @font-face {
-  font-family: "Satoshi";
-  src: url("../fonts/Satoshi-Regular.woff2") format("woff2"), url("../fonts/Satoshi-Regular.woff") format("woff"), url("../fonts/Satoshi-Medium.woff") format("woff"), url("../fonts/Satoshi-Medium.woff2") format("woff2"), url("../fonts/Satoshi-Regular.ttf") format("truetype"), url("../fonts/Satoshi-Light.woff") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal
+  font-family: "amiri" !important;
+  src: url("../fonts/Amiri-Regular.woff2") format("woff2") !important;
+  font-display: swap !important;
+  font-style: normal !important
+}
+@font-face {
+  font-family: "amiri" !important;
+  src: url("../fonts/Satoshi-Regular.woff2") format("woff2") !important;
+  font-display: swap !important;
+  font-style: normal !important
 }
 
 p div {
@@ -5134,7 +5142,7 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 24 / var(--tw-bg-opacity));
   padding: 0px;
-  font-family: 'Satoshi';
+  font-family: 'amiri';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -5214,7 +5222,7 @@ html.lenis {
   position: absolute;
   height: 100%;
   width: 100%;
-  font-family: 'Satoshi';
+  font-family: 'amiri';
   text-transform: uppercase;
   animation: textRotation 20s linear infinite;
 }
@@ -5223,7 +5231,7 @@ html.lenis {
   position: absolute;
   right: 50%;
   top: 8%;
-  font-family: 'Satoshi';
+  font-family: 'amiri';
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 600;
