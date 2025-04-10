@@ -10654,6 +10654,9 @@ canvas {
 .\[\&\>\*\]\:border-l>* {
   border-left-width: 1px;
 }
+.f-button svg{
+  stroke: #fff !important;
+}
 .fancybox__caption{
   text-align: center !important;
 }
