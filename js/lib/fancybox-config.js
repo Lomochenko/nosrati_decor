@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
       
   if (typeof Fancybox !== 'undefined') {
-    Fancybox.bind("[data-fancybox]", {
+    Fancybox.bind("[data-fancybox]",
+       {
       Images: {
         initialSize: "fit",
       },
       infinite: false,
+      preload: 1,
       AnimationEffect: "fade",
       TransitionEffect: "fade",
       contentClick: "toggleCover",
@@ -19,4 +21,4 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.error("FancyBox does not loaded");
   }
-});
+},300);
