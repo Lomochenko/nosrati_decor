@@ -10261,7 +10261,9 @@ canvas {
   --tw-bg-opacity: 1;
   background-color: rgb(21 21 21 / var(--tw-bg-opacity));
 }
-
+.bg-none{
+  background: none !important;
+}
 :is(:where(.dark) .dark\:bg-dark\/10) {
   background-color: rgb(21 21 21 / 0.1);
 }
@@ -10652,7 +10654,9 @@ canvas {
 .\[\&\>\*\]\:border-l>* {
   border-left-width: 1px;
 }
-
+.fancybox__caption{
+  text-align: center !important;
+}
 .\[\&\>\*\]\:border-r>* {
   border-right-width: 1px;
 }

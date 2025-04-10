@@ -11,6 +11,8 @@
 
   <!-- Stylesheets -->
   <link href="css/main.css" rel="stylesheet">
+  <!-- Fancybox CSS - Local Version -->
+  <link href="css/fancybox.css" rel="stylesheet">
 
   <!--Favicon-->
   <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
@@ -18,6 +20,9 @@
   <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="manifest" href="images/site.webmanifest">
+  <!-- gallery -->
+  <script src="js/lib/fancybox.umd.js"></script>
+  <script src="js/lib/fancybox-config.js"></script>
 </head>
 
 <body>
@@ -390,11 +395,11 @@
     <!--=====================================
    product Section
 ======================================-->
-    <section>
+    <section class="bg-none">
       <div class="container">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-xs:px-5">
           <div class="relative group cursor-pointer reveal-me">
-            <a href="project-details.html" class="w-full">
+            <a class="w-full" data-fancybox="gallery" data-src="images/services/services-1.png" data-caption="shombuli">
               <figure class="overflow-hidden">
                 <img loading="lazy" class="w-full h-full block transition-all duration-500 group-hover:scale-125"
                   src="images/services/services-1.png" alt="Services Image">
@@ -406,7 +411,7 @@
             </a>
           </div>
           <div class="relative group cursor-pointer reveal-me">
-            <a href="project-details.html" class="w-full">
+            <a class="w-full" data-fancybox="gallery" data-src="images/services/services-2.png" data-caption="shombuli">
               <figure class="overflow-hidden">
                 <img loading="lazy" class="w-full h-full block transition-all duration-500 hover:scale-125"
                   src="images/services/services-2.png" alt="Services Image">
@@ -418,7 +423,7 @@
             </a>
           </div>
           <div class="relative group cursor-pointer reveal-me">
-            <a href="project-details.html" class="w-full">
+            <a class="w-full" data-fancybox="gallery" data-src="images/services/services-3.png" data-caption="shombuli">
               <figure class="overflow-hidden">
                 <img loading="lazy" class="w-full h-full block transition-all duration-500 hover:scale-125"
                   src="images/services/services-3.png" alt="Services Image">
@@ -430,7 +435,7 @@
             </a>
           </div>
           <div class="relative group cursor-pointer reveal-me">
-            <a href="project-details.html" class="w-full">
+            <a class="w-full" data-fancybox="gallery" data-src="images/services/services-4.png" data-caption="shombuli">
               <figure class="overflow-hidden">
                 <img loading="lazy" class="w-full h-full block transition-all duration-500 hover:scale-125"
                   src="images/services/services-4.png" alt="Services Image">
@@ -442,7 +447,7 @@
             </a>
           </div>
           <div class="relative group cursor-pointer reveal-me">
-            <a href="project-details.html" class="w-full">
+            <a class="w-full" data-fancybox="gallery" data-src="images/services/services-5.png" data-caption="shombuli">
               <figure class="overflow-hidden">
                 <img loading="lazy" class="w-full h-full block transition-all duration-500 hover:scale-125"
                   src="images/services/services-5.png" alt="Services Image">
@@ -454,7 +459,7 @@
             </a>
           </div>
           <div class="relative group cursor-pointer reveal-me">
-            <a href="project-details.html" class="w-full">
+            <a class="w-full" data-fancybox="gallery" data-src="images/services/services-6.png" data-caption="shombuli">
               <figure class="overflow-hidden">
                 <img loading="lazy" class="w-full h-full block transition-all duration-500 hover:scale-125"
                   src="images/services/services-6.png" alt="Services Image">
