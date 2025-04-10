@@ -376,7 +376,13 @@ button,
 [role="button"] {
   cursor: pointer;
 }
-
+.author-img{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
