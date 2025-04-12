@@ -4739,16 +4739,16 @@ img {
 
 @font-face {
   font-family: "amiri" !important;
-  src: url("../fonts/Amiri-Regular.woff2") format("woff2") !important;
+  src: url("../fonts/Amiri-Regular.ttf") format("ttf") !important;
   font-display: swap !important;
   font-style: normal !important
 }
-@font-face {
-  font-family: "amiri" !important;
+/* @font-face {
+  font-family: "satoshi" !important;
   src: url("../fonts/Satoshi-Regular.woff2") format("woff2") !important;
   font-display: swap !important;
   font-style: normal !important
-}
+} */
 
 p div {
   color: inherit;
