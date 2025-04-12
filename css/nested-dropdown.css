@@ -27,13 +27,16 @@
   transform: rotate(180deg);
 }
 
-/* نمایش منوی کشویی سطح دوم با hover */
-.group:hover .sub-dropdown {
+/* نمایش منوی کشویی سطح دوم با کلیک */
+/* حذف عملکرد hover برای نمایش منوی کشویی سطح دوم */
+
+/* استایل برای نمایش منوی کشویی سطح دوم با کلاس block */
+.sub-dropdown.block {
   display: block;
 }
 
-/* بستن منوی کشویی سطح دوم با کلیک روی سایر گزینه‌ها */
-.menu-list-item-anchor:not(:hover) + .menu-list-item-dropdown .sub-dropdown {
+/* استایل برای مخفی کردن منوی کشویی سطح دوم با کلاس hidden */
+.sub-dropdown.hidden {
   display: none;
 }
 
