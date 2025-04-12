@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+@charset "UTF-8";
 
 /*
 ! tailwindcss v3.4.0 | MIT License | https://tailwindcss.com
@@ -135,7 +135,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "amiri", sans-serif;
   /* 1 */
   font-feature-settings: normal;
   /* 2 */
@@ -1309,7 +1309,9 @@ a {
 .ml-10 {
   margin-right: 2.5rem;
 }
-
+.ml-2{
+  margin-right: 0.5rem;
+}
 .ml-4 {
   margin-right: 1rem;
 }
