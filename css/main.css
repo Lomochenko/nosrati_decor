@@ -26,10 +26,11 @@
 }
 
 @font-face {
-  font-family: "amiri" !important;
-  src: url("../fonts/Amiri-Regular.ttf") format("ttf") !important;
-  /* font-display: swap !important; */
-  font-style: normal !important
+  font-family: "pari";
+  src: url("../fonts/Parastoo.woff2") format("woff2"), url("../fonts/Parastoo.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal
 }
 
 /*
@@ -52,7 +53,7 @@ html,
   -o-tab-size: 4;
   tab-size: 4;
   /* 3 */
-  font-family: "amiri" !important;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -114,7 +115,7 @@ Reset links to optimize for opt-in styling instead of opt-out.
 a {
   color: inherit;
   text-decoration: inherit;
-  font-family: 'amiri', sans-serif !important;
+  font-family: 'pari', sans-serif !important;
 }
 
 /*
@@ -135,7 +136,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: "amiri", sans-serif;
+  font-family: "pari", sans-serif;
   /* 1 */
   font-feature-settings: normal;
   /* 2 */
@@ -449,7 +450,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'amiri';
+  font-family: 'pari';
   --tw-text-opacity: 1;
   color: rgb(24 24 24 / var(--tw-text-opacity));
 }
@@ -845,6 +846,7 @@ a {
 .bottom-10 {
   bottom: 2.5rem;
 }
+
 .bottom-10-5 {
   bottom: 3.5rem;
 }
@@ -1313,9 +1315,11 @@ a {
 .ml-10 {
   margin-right: 2.5rem;
 }
-.ml-2{
+
+.ml-2 {
   margin-right: 0.5rem;
 }
+
 .ml-4 {
   margin-right: 1rem;
 }
@@ -4010,11 +4014,11 @@ a {
 }
 
 .font-instrument {
-  font-family: 'amiri', system-ui;
+  font-family: 'pari', system-ui;
 }
 
-.font-amiri {
-  font-family: 'amiri';
+.font-pari {
+  font-family: 'pari';
 }
 
 .font-satoshi {
@@ -4760,16 +4764,6 @@ img {
   color: rgb(237 240 245 / var(--tw-text-opacity));
 }
 
-@font-face {
-  font-family: "satoshi" !important;
-  src: url("../fonts/Satoshi-Regular.woff2") format("woff2") !important;
-  font-display: swap !important;
-  font-style: normal !important
-}
-.font-credit{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
 p div {
   color: inherit;
 }
@@ -5165,7 +5159,7 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 24 / var(--tw-bg-opacity));
   padding: 0px;
-  font-family: 'amiri';
+  font-family: 'pari';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -5245,7 +5239,7 @@ html.lenis {
   position: absolute;
   height: 100%;
   width: 100%;
-  font-family: 'amiri';
+  font-family: 'pari';
   text-transform: uppercase;
   animation: textRotation 20s linear infinite;
 }
@@ -5254,7 +5248,7 @@ html.lenis {
   position: absolute;
   right: 50%;
   top: 8%;
-  font-family: 'amiri';
+  font-family: 'pari';
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 600;
@@ -6459,6 +6453,7 @@ canvas {
 .headroom--unpinned .nav-top {
   transform: translateY(-100%)
 }
+
 .blog-card {
   width: 100%;
   transition-property: width;
