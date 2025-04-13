@@ -19,31 +19,31 @@
 </head>
 <body>
 
-<main class="relative z-10 bg-backgroundBody dark:bg-dark">
+<main class="relative z-10 bg-backgroundBody dark:bg-dark" role="main" aria-label="صفحه خطای 404">
 <!--=========================
     404 Error Page Section
 ==========================-->
-<section class="pt-36 md:pt-12 lg:pt-0 2xl:pt-12 h-screen relative overflow-hidden">
+<section class="pt-36 md:pt-12 lg:pt-0 2xl:pt-12 h-screen relative overflow-hidden" aria-label="محتوای صفحه خطا">
   <div class="container">
     <!-- Gradient Background Wrapper -->
-    <div id="hero-gradient-wrapper" class="absolute w-[80%] lg:w-full h-[80%] lg:h-full top-[35%] left-1/2 -translate-y-[35%] -translate-x-1/2 -z-10 blur-[60px]">
-      <img loading="lazy" src="images/hero-gradient-background.png" alt="hero-gradient-background" id="hero-gradient" class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-0">
+    <div id="hero-gradient-wrapper" class="absolute w-[80%] lg:w-full h-[80%] lg:h-full top-[35%] left-1/2 -translate-y-[35%] -translate-x-1/2 -z-10 blur-[60px]" aria-hidden="true">
+      <img loading="lazy" src="images/hero-gradient-background.png" alt="" id="hero-gradient" class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-0">
     </div>
 
     <!-- Main Content -->
-    <div class="flex flex-col justify-center items-center reveal-me">
+    <div class="flex flex-col justify-center items-center reveal-me" aria-labelledby="error-title error-message">
       <!-- 404 Title -->
-      <h1 class="text-[180px] md:text-[490px] md:leading-[1.05] font-instrument">
+      <h1 id="error-title" class="text-[180px] md:text-[490px] md:leading-[1.05] font-instrument">
         404
       </h1>
 
       <!-- Error Message -->
-      <h2 class="mt-8 mb-8 md:mb-[50px] text-[36px] max-lg:leading-[1.33] lg:text-[87px] font-normal leading-[1.1] lg:tracking-[-2.83px]">
+      <h2 id="error-message" class="mt-8 mb-8 md:mb-[50px] text-[36px] max-lg:leading-[1.33] lg:text-[87px] font-normal leading-[1.1] lg:tracking-[-2.83px]">
         صفحه مورد نظر پیدا نشد
       </h2>
 
       <!-- Back to Homepage Button -->
-      <a href="index.html" class="rv-button rv-button-primary">
+      <a href="index.html" class="rv-button rv-button-primary" aria-label="بازگشت به صفحه اصلی">
         <div class="rv-button-top !text-center">
           <span>صفحه اصلی</span>
         </div>
@@ -56,19 +56,6 @@
 </section>
 
 </main>
-
-<!-- Mark up for Script Section-->
-<!-- <script src="js/lib/imagesloaded.pkgd.min.js"></script>
-<script src="js/lib/gsap.min.js"></script>
-<script src="js/lib/ScrollTrigger.min.js"></script>
-<script src="js/lib/lenis.min.js"></script>
-<script src="js/lib/split-types.min.js"></script>
-<script src="js/lib/matter.min.js"></script>
-<script src="js/career-tabs.js"></script>
-<script src="js/lib/swiper.min.js"></script>
-<script src="js/lib/headroom.min.js"></script>
-<script src="js/lib/vanila-marquee.min.js"></script>
-<script src="js/script.js"></script> -->
 </body>
 
 </html>
