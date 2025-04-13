@@ -3902,6 +3902,47 @@ a {
   padding-top: 0.5rem;
 }
 
+.pagination-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+:is(:where(.dark) .pagination-container a) {
+  color: #edf0f5;
+  border-color: rgba(237, 240, 245, 0.2);
+}
+
+:is(:where(.dark) .pagination-container a:hover) {
+  background-color: rgba(237, 240, 245, 0.1);
+  border-color: rgba(237, 240, 245, 0.5);
+}
+
+:is(:where(.dark) .pagination-container a.bg-secondary\/20) {
+  background-color: rgba(237, 240, 245, 0.2);
+}
+
+.pagination-container a {
+  transition: all 0.3s ease;
+}
+
+.pagination-container a:hover {
+  transform: translateY(-2px);
+}
+
+.pagination-arrow svg {
+  transition: transform 0.3s ease;
+}
+
+.pagination-arrow:hover svg {
+  transform: scale(1.2);
+}
+
+@media (max-width: 640px) {
+  .pagination-container {
+    max-width: 100%;
+  }
+}
+
 .pt-20 {
   padding-top: 5rem;
 }
@@ -5899,7 +5940,8 @@ canvas {
   list-style-type: disc;
   color: #181818b3;
 }
-ul li{
+
+ul li {
   letter-spacing: 1.5px;
 }
 
@@ -7840,6 +7882,7 @@ ul li{
   .min-md\:text-right {
     text-align: right;
   }
+
   .min-md\:mb-7 {
     margin-bottom: 1.75rem;
   }

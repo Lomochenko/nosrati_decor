@@ -13,6 +13,8 @@
   <link href="css/main.css" rel="stylesheet">
   <!-- Fancybox CSS - Local Version -->
   <link href="css/fancybox.css" rel="stylesheet">
+  <!-- Pagination CSS -->
+  <link href="css/pagination.css" rel="stylesheet">
 
   <!--Favicon-->
   <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
@@ -401,7 +403,7 @@
         <div class="reveal-me mb-5 mt-5">
           <!-- Badge Component -->
           <div class="flex justify-start gap-2 items-center text-center overflow-x-auto custom-scroll">
-              <span class="md:hidden">←</span>
+            <span class="md:hidden">←</span>
             <!--  -->
             <div class="rv-badge">
               <a href="#" class="rv-badge-text aHover">MDF</a>
@@ -509,25 +511,65 @@
             </a>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Load more -->
-    <section class="relative">
-      <div class="container flex justify-center">
-        <!-- LM Button -->
-        <ul class="flex justify-center items-center mt-14 list-none">
-          <!-- Primary LM Button -->
-          <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
-            <a href="#" class="rv-button rv-button-primary block md:inline-block">
-              <div class="rv-button-top">
-                <span>Load More</span>
-              </div>
-              <div class="rv-button-bottom">
-                <span class="text-nowrap">Load More</span>
-              </div>
-            </a>
-          </li>
-        </ul>
+
+        <!-- Pagination -->
+        <div class="flex justify-center items-center mt-10 md:mt-14 reveal-me">
+          <nav class="pagination-container pt-2" aria-label="صفحه‌بندی">
+            <ul class="flex flex-wrap justify-center items-center gap-2 md:gap-3" dir="ltr">
+              <!-- Previous Page Button -->
+              <li>
+                <a href="#"
+                  class="pagination-arrow flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rtl:rotate-180" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </a>
+              </li>
+              <!-- Page Numbers -->
+              <li>
+                <a href="#"
+                  class="flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300 bg-secondary/20 font-medium">
+                  1
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300">
+                  2
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300">
+                  3
+                </a>
+              </li>
+              <li class="hidden md:block">
+                <a href="#"
+                  class="flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300">
+                  4
+                </a>
+              </li>
+              <li class="hidden md:block">
+                <a href="#"
+                  class="flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300">
+                  5
+                </a>
+              </li>
+              <!-- Next Page Button -->
+              <li>
+                <a href="#"
+                  class="pagination-arrow flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rtl:rotate-180" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </section>
     <!--=====================================
