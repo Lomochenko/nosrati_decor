@@ -469,7 +469,7 @@ h1 {
   font-size: 3rem;
   font-weight: 400;
   line-height: 1.25;
-  letter-spacing: -2px;
+  letter-spacing: 1.2px;
 }
 
 @media (min-width: 640px) {
@@ -494,7 +494,7 @@ h1 {
   h1 {
     font-size: 6rem;
     line-height: 1.15;
-    letter-spacing: -2.88px;
+    letter-spacing: 1.2px;
   }
 }
 
@@ -534,7 +534,7 @@ h3 {
   h3 {
     font-size: 42px;
     line-height: 1.75;
-    letter-spacing: -1.68px;
+    letter-spacing: 1.2px;
   }
 }
 
@@ -566,7 +566,7 @@ h5 {
     font-size: 2.25rem;
     line-height: 2.5rem;
     line-height: 1.2;
-    letter-spacing: -1.08px;
+    letter-spacing: 1.2px;
   }
 }
 
@@ -588,6 +588,7 @@ p {
   line-height: 1.65rem;
   font-weight: 400;
   color: #181818b3;
+  letter-spacing: 1.2px;
 }
 
 .auto-color {
@@ -4292,7 +4293,7 @@ a {
   line-height: 1.25;
 }
 
-.tracking-\[-0\.2px\] {
+/* .tracking-\[-0\.2px\] {
   letter-spacing: -0.2px;
 }
 
@@ -4378,7 +4379,7 @@ a {
 
 .tracking-widest {
   letter-spacing: 0.1em;
-}
+} */
 
 .text-\[\#000000b3\] {
   color: #000000b3;
@@ -4832,7 +4833,7 @@ p div {
   display: inline-block;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.12px;
+  letter-spacing: 1.2px;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
@@ -5771,7 +5772,7 @@ canvas {
   .project-details-body h3 {
     font-size: 38px;
     line-height: 1.2;
-    letter-spacing: -1.68px;
+    letter-spacing: 1.2px;
   }
 }
 
@@ -5799,7 +5800,7 @@ canvas {
   .project-details2-body h3 {
     font-size: 38px;
     line-height: 1.2;
-    letter-spacing: -1.68px;
+    letter-spacing: 1.2px;
   }
 }
 
@@ -5857,7 +5858,7 @@ canvas {
   .blog-details-body h3 {
     font-size: 38px;
     line-height: 1.2;
-    letter-spacing: -1.68px;
+    letter-spacing: 1.2px;
   }
 }
 
@@ -5897,6 +5898,9 @@ canvas {
 .blog-details-body ul li {
   list-style-type: disc;
   color: #181818b3;
+}
+ul li{
+  letter-spacing: 1.5px;
 }
 
 @media (min-width: 768px) {
@@ -7836,6 +7840,9 @@ canvas {
   .min-md\:text-right {
     text-align: right;
   }
+  .min-md\:mb-7 {
+    margin-bottom: 1.75rem;
+  }
 
   .md\:-left-11 {
     right: -2.75rem;
@@ -8927,7 +8934,7 @@ canvas {
     line-height: 50px;
   }
 
-  .md\:tracking-\[-0\.72px\] {
+  /* .md\:tracking-\[-0\.72px\] {
     letter-spacing: -0.72px;
   }
 
@@ -8961,7 +8968,7 @@ canvas {
 
   .md\:tracking-wide {
     letter-spacing: 0.025em;
-  }
+  } */
 
   .md\:text-\[56PX\] {
     color: 56PX;
@@ -9122,7 +9129,7 @@ canvas {
   }
 
   .lg\:mb-12 {
-    margin-bottom: 3rem;
+    margin-bottom: 3rem !important;
   }
 
   .lg\:mb-14 {
@@ -9855,7 +9862,7 @@ canvas {
     line-height: 60px;
   }
 
-  .lg\:-tracking-\[1\.08px\] {
+  /* .lg\:-tracking-\[1\.08px\] {
     letter-spacing: -1.08px;
   }
 
@@ -9889,7 +9896,7 @@ canvas {
 
   .lg\:tracking-\[0\.72px\] {
     letter-spacing: 0.72px;
-  }
+  } */
 
   .lg\:content-\[\'\'\] {
     --tw-content: '';
@@ -10186,9 +10193,9 @@ canvas {
     line-height: 90px;
   }
 
-  .xl\:tracking-\[-2\.88px\] {
+  /* .xl\:tracking-\[-2\.88px\] {
     letter-spacing: -2.88px;
-  }
+  } */
 }
 
 @media (min-width: 1430px) {
