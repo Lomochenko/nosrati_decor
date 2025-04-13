@@ -356,11 +356,11 @@
   </div>
 
 
-  <main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+  <main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark" role="main" aria-label="صفحه درباره ما">
     <!--=====================================
    Page Header V2
 ======================================-->
-    <section class="pt-28 pb-14 md:pb-20 lg:pb-[100px]">
+    <section class="pt-28 pb-14 md:pb-20 lg:pb-[100px]" aria-label="هدر صفحه">
       <div class="container reveal-me">
         <!-- Top Content Row -->
         <div>
@@ -385,11 +385,11 @@
     <!--=====================================
   Promo Video Section
 ======================================-->
-    <section class="video-section reveal-me relative overflow-hidden" dir="ltr">
+    <section class="video-section reveal-me relative overflow-hidden" dir="ltr" aria-label="ویدیوی معرفی">
       <!-- Video Wrapper -->
       <div class="w-full h-fit video-wrapper scale-50 origin-top">
         <!-- Autoplay Muted Looping Promo Video -->
-        <video class="w-full h-full" autoplay muted loop>
+        <video class="w-full h-full" autoplay muted loop aria-label="ویدیوی معرفی شرکت">
           <source src="images/interior.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -401,7 +401,7 @@
    About Section Area
 ==========================-->
     <section
-      class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] pt-28 md:pt-32 lg:pt-44 xl:pt-[200px] relative overflow-hidden about">
+      class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] pt-28 md:pt-32 lg:pt-44 xl:pt-[200px] relative overflow-hidden about" aria-label="درباره ما">
       <div class="container">
         <!-- Content Wrapper -->
         <div class="flex flex-col items-center lg:items-stretch justify-center lg:justify-normal reveal-me">
@@ -426,13 +426,13 @@
    Team Member Showcase Section
 ======================================-->
     <section
-      class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative z-50 overflow-hidden">
+      class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative z-50 overflow-hidden" aria-label="تیم ما">
       <div class="container reveal-me">
         <!-- Main Profile Card -->
         <div
           class="our-team-details flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center border dark:border-dark p-5 lg:p-10 bg-backgroundBody dark:bg-dark">
           <figure class="max-lg:w-full lg:max-w-[330px] lg:max-h-[350px]">
-            <img src="images/home-ai/team/ai-team-1.png" alt="Team Leader" class="w-full object-cover">
+            <img src="images/home-ai/team/ai-team-1.png" alt="ماروین مکینی - بنیانگذار" class="w-full object-cover">
           </figure>
 
           <!-- Profile Details Container -->
@@ -448,9 +448,9 @@
               <ul class="flex gap-5 md:self-end">
                 <li>
                   <a href="https://wa.me/1234567890"
-                    class=" flex items-center group hover:text-primary transition-colors duration-300">
+                    class=" flex items-center group hover:text-primary transition-colors duration-300" aria-label="واتساپ ماروین مکینی">
                     <div
-                      class="w-6 h-10 rounded-full bg-primary/20 auto-color flex items-center justify-center mr-3 group-hover:bg-primary/40 transition-all duration-300">
+                      class="w-6 h-10 rounded-full bg-primary/20 auto-color flex items-center justify-center mr-3 group-hover:bg-primary/40 transition-all duration-300" aria-hidden="true">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none"
                         stroke="rgb(18 216 204 / var(--tw-bg-opacity))" stroke-width="1.2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -466,9 +466,9 @@
                 <li>
                   <!-- Telephone Link -->
                   <a href="tel:+1234567890"
-                    class="flex items-center group hover:text-primary transition-colors duration-300">
+                    class="flex items-center group hover:text-primary transition-colors duration-300" aria-label="تماس تلفنی با ماروین مکینی">
                     <div
-                      class="w-6 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 group-hover:bg-primary/40 transition-all duration-300">
+                      class="w-6 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 group-hover:bg-primary/40 transition-all duration-300" aria-hidden="true">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none"
                         stroke="rgb(18 216 204 / var(--tw-bg-opacity))" stroke-width="1.2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -500,7 +500,7 @@
             class="tab-member max-w-[370px] flex-auto border dark:border-dark p-5 flex items-center h-auto gap-5 transitionTimingFunction tab-active"
             data-member="marvin">
             <figure>
-              <img src="images/home-ai/team/ai-team-1.png" alt="Marvin McKinney"
+              <img src="images/home-ai/team/ai-team-1.png" alt="ماروین مکینی - بنیانگذار"
                 class="w-[130px] h-[130px] object-cover">
             </figure>
             <div>
@@ -514,7 +514,7 @@
             class="tab-member border dark:border-dark max-w-[370px] flex-auto p-5 flex items-center h-auto gap-5 transitionTimingFunction"
             data-member="marvin">
             <figure>
-              <img src="images/home-ai/team/ai-team-2.png" alt="Marvin McKinney"
+              <img src="images/home-ai/team/ai-team-2.png" alt="جکس هنری - هم‌بنیانگذار"
                 class="w-[130px] h-[130px] object-cover">
             </figure>
             <div>
@@ -528,7 +528,7 @@
             class="tab-member max-w-[370px] flex-auto border dark:border-dark p-5 flex items-center h-auto gap-5 transitionTimingFunction"
             data-member="marvin">
             <figure>
-              <img src="images/home-ai/team/ai-team-3.png" alt="Marvin McKinney"
+              <img src="images/home-ai/team/ai-team-3.png" alt="کورتنی هنری - مهندس وب"
                 class="w-[130px] h-[130px] object-cover">
             </figure>
             <div>
@@ -547,10 +547,10 @@
    FAQ Section
 ======================================-->
     <section
-      class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
+      class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden" aria-label="سوالات متداول">
       <div
-        class="absolute scale-y-[3.4] sm:scale-y-[1.6] md:scale-y-[1.5] lg:scale-y-[1.5] xl:scale-y-[1.4] 2xl:scale-y-[1] scale-x-[2.8] md:scale-x-[1.9] lg:scale-x-[1.7] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 -z-30">
-        <img src="images/gradient-bg.png" alt="gradient-bg">
+        class="absolute scale-y-[3.4] sm:scale-y-[1.6] md:scale-y-[1.5] lg:scale-y-[1.5] xl:scale-y-[1.4] 2xl:scale-y-[1] scale-x-[2.8] md:scale-x-[1.9] lg:scale-x-[1.7] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 -z-30" aria-hidden="true">
+        <img src="images/gradient-bg.png" alt="">
       </div>
       <div class="container">
         <!-- FAQ Section Title -->
@@ -563,14 +563,14 @@
           <!-- FAQ Item 1 -->
           <div
             class="accordion-item overflow-hidden bg-backgroundBody dark:bg-dark border border-transparent dark:border-transparent duration-300">
-            <div class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10">
+            <div class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10" role="button" aria-expanded="false" aria-controls="accordion-body-1" tabindex="0" id="accordion-header-1">
               <h3
                 class="text-lg sm:text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10">
                 What services does Rivor offer?
               </h3>
-              <div class="accordion-header-icon dark:border-dark"></div>
+              <div class="accordion-header-icon dark:border-dark" aria-hidden="true"></div>
             </div>
-            <p class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0">
+            <p id="accordion-body-1" class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0" aria-labelledby="accordion-header-1">
               Rivor provides a range of digital services including web design,
               development, SEO, branding, mobile app development, and digital
               marketing. development, SEO, branding, mobile app development, and
@@ -653,25 +653,25 @@
     <!--=====================================
    CTA Section
 ======================================-->
-    <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-20 lg:pb-28 relative overflow-hidden">
-      <div class="absolute scale-x-[2.5] scale-y-[0.75] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2">
-        <img loading="lazy" src="images/gradient-bg.png" alt>
+    <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-20 lg:pb-28 relative overflow-hidden" aria-label="تماس با ما">
+      <div class="absolute scale-x-[2.5] scale-y-[0.75] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2" aria-hidden="true">
+        <img loading="lazy" src="images/gradient-bg.png" alt="">
       </div>
       <div class="container">
         <!-- CTA Heading -->
         <h2 class="text-center xl:text-[96px] font-normal xl:leading-[1.1] xl:tracking-[-2.88px]">
           مشاوره میخوای؟
           <div
-            class="cta-slider-container max-sm:block sm:inline-block max-sm:mb-5 translate-y-2 sm:translate-y-[20px] max-sm:mt-2.5">
+            class="cta-slider-container max-sm:block sm:inline-block max-sm:mb-5 translate-y-2 sm:translate-y-[20px] max-sm:mt-2.5" aria-label="اسلایدر تصاویر">
             <div class="cta-inline-slider">
               <div class="slide">
-                <img loading="lazy" src="images/agent/01.jpg" alt="Slide 1">
+                <img loading="lazy" src="images/agent/01.jpg" alt="تصویر مشاور 1">
               </div>
               <div class="slide">
-                <img loading="lazy" src="images/agent/02.jpg" alt="Slide 2">
+                <img loading="lazy" src="images/agent/02.jpg" alt="تصویر مشاور 2">
               </div>
               <div class="slide">
-                <img loading="lazy" src="images/agent/03.jpg" alt="Slide 3">
+                <img loading="lazy" src="images/agent/03.jpg" alt="تصویر مشاور 3">
               </div>
             </div>
           </div>
@@ -683,7 +683,7 @@
         <ul class="flex justify-center items-center mt-14 list-none">
           <!-- Primary CTA Button -->
           <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
-            <a href="contact.html" class="rv-button rv-button-primary block md:inline-block">
+            <a href="contact.html" class="rv-button rv-button-primary block md:inline-block" aria-label="تماس با ما">
               <div class="rv-button-top">
                 <span>Contact Us</span>
               </div>
