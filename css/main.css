@@ -9311,6 +9311,9 @@ ul li {
   .lg\:max-h-\[732px\] {
     max-height: 732px;
   }
+  .lg\:max-h-\[750px\] {
+    max-height: 750px;
+  }
 
   .lg\:w-8 {
     width: 2rem;
