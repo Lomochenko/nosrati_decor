@@ -6783,6 +6783,10 @@ ul li {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+.hover\:text-bold:hover {
+  font-weight: 700 !important;
+  --tw-bg-opacity: 1;
+}
 
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
