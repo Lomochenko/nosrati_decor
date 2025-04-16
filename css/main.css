@@ -4062,9 +4062,8 @@ a {
 .font-pari {
   font-family: 'pari';
 }
-
-.font-satoshi {
-  font-family: 'satoshi', sans-serif;
+.font-credit{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .text-2xl {
