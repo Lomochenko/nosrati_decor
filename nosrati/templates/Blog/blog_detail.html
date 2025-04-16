@@ -85,12 +85,14 @@
             <div class="max-w-[1440px] mx-auto px-10 md:px-20">
                 <!-- Featured Image -->
                 <figure class="w-full reveal-me max-w-[750px] max-h-[750px] mx-auto">
-                    {% thumbnail article.image "800x800" quality=90 as im %}
+                {% if article.image %}
+                	{% thumbnail article.image "800x800" quality=90 as im %}
                         <img class="w-full"
                              loading="lazy" src="{{ im.url }}"
                              data-src="{{ im.url }}"
                              alt="{{ article.title }}">
                     {% endthumbnail %}
+                {% endif %}
 
                 </figure>
 
@@ -233,12 +235,14 @@
                             </div>
                             {% if blog.image %}
                                 <figure class="reveal-me">
-                                    {% thumbnail blog.image "800x800" quality=90 as im %}
+                                {% if blog.image %}
+                                	{% thumbnail blog.image "800x800" quality=90 as im %}
                                         <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
                                              loading="lazy" src="{{ im.url }}"
                                              data-src="{{ im.url }}"
                                              alt="{{ blog.title }}">
                                     {% endthumbnail %}
+                                {% endif %}
 
                                 </figure>
                             {% endif %}
@@ -256,12 +260,14 @@
                     {% for blog in article.recommended_products.all %}
                         <div class="max-w-[370px] reveal-me group">
                             <figure class="overflow-hidden">
-                                {% thumbnail blog.image "800x800" quality=90 as im %}
+                            {% if blog.image %}
+                            	 {% thumbnail blog.image "800x800" quality=90 as im %}
                                     <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
                                          loading="lazy" src="{{ im.url }}"
                                          data-src="{{ im.url }}"
                                          alt="{{ blog.title }}">
                                 {% endthumbnail %}
+                            {% endif %}
 
                             </figure>
                             <p class="text-sm leading-[1.1] tracking-[1.12px] uppercase font-poppins font-normal mt-[30px] mb-5">

@@ -40,15 +40,17 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-xs:px-5">
                         {% for child in category.parentcategory.all %}
                             <div class="relative group cursor-pointer reveal-me">
-                                <a href="{% url 'product-page' slug=child.slug  %}" class="w-full">
+                                <a href="{% url 'product-page' slug=child.slug %}" class="w-full">
                                     <figure class="overflow-hidden">
+                                        {% if child.photo %}
+                                            {% thumbnail child.photo "800x800" quality=90 as im %}
+                                                <img class="w-full h-full block transition-all duration-500 group-hover:scale-125"
+                                                     loading="lazy" src="{{ im.url }}"
+                                                     data-src="{{ im.url }}"
+                                                     alt="{{ child.title }}">
+                                            {% endthumbnail %}
+                                        {% endif %}
 
-                                        {% thumbnail child.photo "800x800" quality=90 as im %}
-                                            <img class="w-full h-full block transition-all duration-500 group-hover:scale-125"
-                                                 loading="lazy" src="{{ im.url }}"
-                                                 data-src="{{ im.url }}"
-                                                 alt="{{ child.title }}">
-                                        {% endthumbnail %}
 
                                     </figure>
                                     <div
@@ -93,12 +95,15 @@
                             <!-- Project Image -->
 
                             <figure class="md:max-w-[372px] max-md:w-full md:h-[328px] overflow-hidden">
-                                {% thumbnail next_category.photo "800x800" quality=90 as im %}
-                                    <img class="full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-                                         loading="lazy" src="{{ im.url }}"
-                                         data-src="{{ im.url }}"
-                                         alt="{{ category.title }}">
-                                {% endthumbnail %}
+                                {% if next_category.photo %}
+                                    {% thumbnail next_category.photo "800x800" quality=90 as im %}
+                                        <img class="full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
+                                             loading="lazy" src="{{ im.url }}"
+                                             data-src="{{ im.url }}"
+                                             alt="{{ category.title }}">
+                                    {% endthumbnail %}
+                                {% endif %}
+
 
                             </figure>
 

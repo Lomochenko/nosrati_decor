@@ -53,18 +53,21 @@
                     {% for article in articles %}
                         <div class="max-w-[370px] reveal-me underline-hover-effect group">
                             <figure class="overflow-hidden">
-                                {% thumbnail article.image "800x800" quality=90 as im %}
-                                    <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-                                         loading="lazy" src="{{ im.url }}"
-                                         data-src="{{ im.url }}"
-                                         alt="{{ article.title }}">
-                                {% endthumbnail %}
+                                {% if article.image %}
+                                    {% thumbnail article.image "800x800" quality=90 as im %}
+                                        <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
+                                             loading="lazy" src="{{ im.url }}"
+                                             data-src="{{ im.url }}"
+                                             alt="{{ article.title }}">
+                                    {% endthumbnail %}
+                                {% endif %}
 
                             </figure>
                             <p class="text-sm leading-[1.1] tracking-[1.12px] uppercase font-poppins font-normal mt-[30px] mb-5">
                                 {{ article.create_date|to_jalali:"%Y/%m/%d" }}
                             </p>
-                            <a href="{% url 'articles_detail' slug=article.slug %}" aria-label="مشاهده مقاله تغییر چهره تبلیغات دیجیتال">
+                            <a href="{% url 'articles_detail' slug=article.slug %}"
+                               aria-label="مشاهده مقاله تغییر چهره تبلیغات دیجیتال">
                                 <div class="blog-title mb-9">
                                     <h3 class="text[25px] md:text-3xl lg:text-4xl lg:leading-[1.2] lg:tracking-[-0.72px]">
                                         {{ article.title }}
@@ -76,15 +79,18 @@
                                aria-label="مطالعه مقاله در 3 دقیقه">
                                 <div class="rv-button-top !text-center flex items-center">
                                     <span class="pr-1">3 minute read</span>
-                                    <img loading="lazy" class="inline dark:hidden" src="{% static 'images/icons/top-arrow.svg' %}"
+                                    <img loading="lazy" class="inline dark:hidden"
+                                         src="{% static 'images/icons/top-arrow.svg' %}"
                                          alt=""
                                          aria-hidden="true">
-                                    <img loading="lazy" class="hidden dark:inline" src="{% static 'images/icons/top-arrow-dark.svg' %}"
+                                    <img loading="lazy" class="hidden dark:inline"
+                                         src="{% static 'images/icons/top-arrow-dark.svg' %}"
                                          alt="" aria-hidden="true">
                                 </div>
                                 <div class="rv-button-bottom !text-center flex items-center">
                                     <span class="pr-1">3 minute read</span>
-                                    <img loading="lazy" class="inline" src="{% static 'images/icons/top-arrow.svg' %}" alt=""
+                                    <img loading="lazy" class="inline" src="{% static 'images/icons/top-arrow.svg' %}"
+                                         alt=""
                                          aria-hidden="true">
                                 </div>
                             </a>

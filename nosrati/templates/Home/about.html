@@ -89,12 +89,15 @@
                         <div
                                 class="our-team-details flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center border dark:border-dark p-5 lg:p-10 bg-backgroundBody dark:bg-dark">
                             <figure class="max-lg:w-full lg:max-w-[330px] lg:max-h-[350px]">
-                                {% thumbnail employee.photo "800x800" quality=90 as im %}
-                                    <img class="w-full object-cover"
-                                         loading="lazy" src="{{ im.url }}"
-                                         data-src="{{ im.url }}"
-                                         alt="{{ employee.title }}">
-                                {% endthumbnail %}
+                                {% if employee.photo %}
+                                    {% thumbnail employee.photo "800x800" quality=90 as im %}
+                                        <img class="w-full object-cover"
+                                             loading="lazy" src="{{ im.url }}"
+                                             data-src="{{ im.url }}"
+                                             alt="{{ employee.title }}">
+                                    {% endthumbnail %}
+                                {% endif %}
+
 
                             </figure>
 
@@ -173,12 +176,15 @@
                                     class="tab-member max-w-[370px] flex-auto border dark:border-dark p-5 flex items-center h-auto gap-5 transitionTimingFunction tab-active"
                                     data-member="marvin">
                                 <figure>
-                                    {% thumbnail employee.photo "800x800" quality=90 as im %}
-                                    <img class="w-full object-cover"
-                                         loading="lazy" src="{{ im.url }}"
-                                         data-src="{{ im.url }}"
-                                         alt="{{ employee.title }}">
-                                {% endthumbnail %}
+                                    {% if employee.photo %}
+                                        {% thumbnail employee.photo "800x800" quality=90 as im %}
+                                            <img class="w-full object-cover"
+                                                 loading="lazy" src="{{ im.url }}"
+                                                 data-src="{{ im.url }}"
+                                                 alt="{{ employee.title }}">
+                                        {% endthumbnail %}
+                                    {% endif %}
+
                                 </figure>
                                 <div>
                                     <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3">
@@ -192,12 +198,15 @@
                                     class="tab-member max-w-[370px] flex-auto border dark:border-dark p-5 flex items-center h-auto gap-5 transitionTimingFunction"
                                     data-member="marvin">
                                 <figure>
-                                    {% thumbnail employee.photo "800x800" quality=90 as im %}
-                                    <img class="w-full object-cover"
-                                         loading="lazy" src="{{ im.url }}"
-                                         data-src="{{ im.url }}"
-                                         alt="{{ employee.title }}">
-                                {% endthumbnail %}
+                                    {% if employee.photo %}
+                                        {% thumbnail employee.photo "800x800" quality=90 as im %}
+                                            <img class="w-full object-cover"
+                                                 loading="lazy" src="{{ im.url }}"
+                                                 data-src="{{ im.url }}"
+                                                 alt="{{ employee.title }}">
+                                        {% endthumbnail %}
+                                    {% endif %}
+
                                 </figure>
                                 <div>
                                     <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3">
