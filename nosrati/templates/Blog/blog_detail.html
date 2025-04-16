@@ -49,50 +49,43 @@
 
 
             <nav class="max-w-[1440px] mx-auto px-10 md:px-20 mt-5 mb-5" aria-label="مسیر ناوبری">
-                <ol class="flex justify-start align-center">
+                <ol class="flex justify-start items-center whitespace-nowrap">
+                    {% for crumb in breadcrumbs %}
+                        <li class="inline-flex items-center">
+
+                                <a href="{{ crumb.url }}"
+                                   class="flex items-center text-sm text-gray-500 hover:text-bold focus:outline-hidden focus:text-blue-600">
+                                    {{ crumb.title }}
+                                </a>
+                                <svg class="shrink-0 size-5 text-gray-400 mx-2" width="16" height="16"
+                                     viewBox="0 0 16 16">
+                                    <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"></path>
+                                </svg>
+                        </li>
+                    {% endfor %}
                     <li class="inline-flex items-center">
-                        <a href="index.html"
-                           class=" text-6xl inline-flex items-center text-sm font-medium" aria-label="صفحه اصلی">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <div class="flex items-center">
-                            <svg class="rotate90  px-1 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="m1 9 4-4-4-4"/>
-                            </svg>
-                            <a href="product.html"
-                               class=" text-6xl ms-1 text-sm font-medium" aria-label="محصولات">products</a>
-                        </div>
-                    </li>
-                    <li aria-current="page">
-                        <div class="flex items-center">
-                            <svg class="rotate90  px-1 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="m1 9 4-4-4-4"/>
-                            </svg>
-                            <span class=" text-6xl ms-1 text-sm">product detail</span>
-                        </div>
-                    </li>
+
+                                <a href="#"
+                                   class="flex items-center text-sm text-gray-500 hover:text-bold focus:outline-hidden focus:text-blue-600">
+                                    {{ article.title }}
+                                </a>
+
+                        </li>
                 </ol>
+
             </nav>
 
             <div class="max-w-[1440px] mx-auto px-10 md:px-20">
                 <!-- Featured Image -->
                 <figure class="w-full reveal-me max-w-[750px] max-h-[750px] mx-auto">
-                {% if article.image %}
-                	{% thumbnail article.image "800x800" quality=90 as im %}
-                        <img class="w-full"
-                             loading="lazy" src="{{ im.url }}"
-                             data-src="{{ im.url }}"
-                             alt="{{ article.title }}">
-                    {% endthumbnail %}
-                {% endif %}
+                    {% if article.image %}
+                        {% thumbnail article.image "800x800" quality=90 as im %}
+                            <img class="w-full"
+                                 loading="lazy" src="{{ im.url }}"
+                                 data-src="{{ im.url }}"
+                                 alt="{{ article.title }}">
+                        {% endthumbnail %}
+                    {% endif %}
 
                 </figure>
 
@@ -235,14 +228,14 @@
                             </div>
                             {% if blog.image %}
                                 <figure class="reveal-me">
-                                {% if blog.image %}
-                                	{% thumbnail blog.image "800x800" quality=90 as im %}
-                                        <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-                                             loading="lazy" src="{{ im.url }}"
-                                             data-src="{{ im.url }}"
-                                             alt="{{ blog.title }}">
-                                    {% endthumbnail %}
-                                {% endif %}
+                                    {% if blog.image %}
+                                        {% thumbnail blog.image "800x800" quality=90 as im %}
+                                            <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
+                                                 loading="lazy" src="{{ im.url }}"
+                                                 data-src="{{ im.url }}"
+                                                 alt="{{ blog.title }}">
+                                        {% endthumbnail %}
+                                    {% endif %}
 
                                 </figure>
                             {% endif %}
@@ -260,14 +253,14 @@
                     {% for blog in article.recommended_products.all %}
                         <div class="max-w-[370px] reveal-me group">
                             <figure class="overflow-hidden">
-                            {% if blog.image %}
-                            	 {% thumbnail blog.image "800x800" quality=90 as im %}
-                                    <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-                                         loading="lazy" src="{{ im.url }}"
-                                         data-src="{{ im.url }}"
-                                         alt="{{ blog.title }}">
-                                {% endthumbnail %}
-                            {% endif %}
+                                {% if blog.image %}
+                                    {% thumbnail blog.image "800x800" quality=90 as im %}
+                                        <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
+                                             loading="lazy" src="{{ im.url }}"
+                                             data-src="{{ im.url }}"
+                                             alt="{{ blog.title }}">
+                                    {% endthumbnail %}
+                                {% endif %}
 
                             </figure>
                             <p class="text-sm leading-[1.1] tracking-[1.12px] uppercase font-poppins font-normal mt-[30px] mb-5">
@@ -285,9 +278,11 @@
                             <a href="{% url 'articles_detail' slug=blog.slug %}" class="rv-button rv-button-primary2">
                                 <div class="rv-button-top !text-center flex items-center">
                                     <span class="pr-1">3 minute read</span>
-                                    <img loading="lazy" class="inline dark:hidden" src="{% static 'images/icons/top-arrow.svg' %}"
+                                    <img loading="lazy" class="inline dark:hidden"
+                                         src="{% static 'images/icons/top-arrow.svg' %}"
                                          alt="Arrow Icon">
-                                    <img loading="lazy" class="hidden dark:inline" src="{% static 'images/icons/top-arrow-dark.svg' %}"
+                                    <img loading="lazy" class="hidden dark:inline"
+                                         src="{% static 'images/icons/top-arrow-dark.svg' %}"
                                          alt="Arrow Icon">
                                 </div>
                                 <div class="rv-button-bottom !text-center flex items-center">

@@ -1,4 +1,5 @@
 from django.http import Http404
+from django.urls import reverse
 from django.views.generic import TemplateView, ListView
 
 from .models import Category, Product
@@ -57,6 +58,12 @@ class ProductView(ListView):
             .order_by('id')
             .values('id', 'title', 'slug', 'photo')
         )
+
+        context['breadcrumbs'] = [
+            {'title': 'خانه', 'url': reverse('home-page')},
+            {'title': 'دسته‌بندی‌ها', 'url': reverse('category-page', kwargs={'slug': category.parent.slug})},
+            {'title': category.title, 'url': None}  # Current category is the last item in breadcrumb
+        ]
 
         # پیدا کردن ایندکس دسته‌ی فعلی
         current_index = next((i for i, c in enumerate(parent_categories) if c['id'] == category.id), None)

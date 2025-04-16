@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic import ListView, DetailView
 
 from .models import Article
@@ -32,4 +33,9 @@ class ArticleDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data()
+        context['breadcrumbs'] = [
+            {'title': 'خانه', 'url': reverse('home-page')},
+            {'title': 'مقالات', 'url': reverse('article_page')},
+
+        ]
         return context
