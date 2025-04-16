@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # library
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'sorl.thumbnail',
     'django_render_partial',
     'jalali_date',
@@ -47,6 +49,8 @@ INSTALLED_APPS = [
     'Product',
     'Blog',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
