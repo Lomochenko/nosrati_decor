@@ -5773,6 +5773,8 @@ canvas {
 }
 
 .tab-member.tab-active p {
+  --tw-text-opacity: 1;
+  color: rgb(237 240 245 / var(--tw-text-opacity));
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
