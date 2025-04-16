@@ -5,12 +5,13 @@ from slugify import slugify
 # Create your models here.
 class Category(models.Model):
     parent = models.ForeignKey('Category', null=True, blank=True, on_delete=models.CASCADE,
-                               verbose_name='دسته بندی والد')
+                               verbose_name='دسته بندی والد', related_name='parentcategory')
     title = models.CharField(max_length=200, db_index=True, verbose_name='عنوان دسته بندی')
-    photo = models.ImageField(upload_to='category/', verbose_name='عکس دسته بندی', null=True, blank=True)
+    photo = models.ImageField(upload_to='category/', verbose_name='عکس دسته بندی')
     url_title = models.CharField(max_length=200, unique=True, verbose_name='عنوان انگلیسی در url')
     slug = models.SlugField(verbose_name='عنوان در url', blank=True, editable=False, allow_unicode=True)
-    blog = models.ForeignKey('Blog.Article',on_delete=models.CASCADE,verbose_name='مقاله های مرتبط')
+    blog = models.ManyToManyField('Blog.Article', blank=True, verbose_name='مقاله های مرتبط',
+                                  related_name='blags_detail')
     create_date = models.DateTimeField(null=True, verbose_name='تاریخ')
     is_active = models.BooleanField(default=True, verbose_name='فعال / غیرفعال')
 

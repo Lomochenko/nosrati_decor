@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'jalali_date',
     'django_summernote',
     # app
+    'Home',
     'User',
     'SiteSetting',
     'Product',
@@ -162,3 +163,11 @@ JALALI_DATE_DEFAULTS = {
         }
     },
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True  # برای امنیت بیشتر
+EMAIL_HOST_USER = 'ali.naseri3179@gmail.com'  # آدرس ایمیل شما
+EMAIL_HOST_PASSWORD = 'cqnz ooeg ihhp xuhb'  # رمز عبور ایمیل شما
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # ایمیل پیش‌فرض برای ارسال

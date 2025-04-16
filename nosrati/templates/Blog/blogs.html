@@ -1,0 +1,194 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load jalali_tags %}
+
+{% block title %}
+    مقالات کابینت نصرتی
+{% endblock %}
+
+
+{% block content %}
+
+    <main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+        <!--=====================================
+       Page Header Section
+    ======================================-->
+        <section class="pt-28 sm:pb-28 max-md:pb-16 md:py-[155px] lg:py-[177px] relative z-50 overflow-hidden">
+            <div id="hero-gradient-wrapper"
+                 class="absolute w-full h-full top-0 left-0 -z-10 blur-[35px] md:blur-[60px] scale-75">
+                <!-- Gradient Background Image: Positioned centrally with responsive sizing -->
+                <img loading="lazy" src="{% static 'images/hero-gradient-background.png' %}"
+                     alt="hero-gradient-background"
+                     id="hero-gradient"
+                     class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            </div>
+
+            <!-- Content Container -->
+            <div class="container">
+                <!-- Centered Content with Animation -->
+                <div class="text-center reveal-me">
+                    <!-- Badge Component -->
+                    <div class="rv-badge">
+                        <span class="rv-badge-text">Blog</span>
+                    </div>
+
+                    <!-- Title and Description -->
+                    <h1 class="mt-3.5 sm:mt-5 lg:mt-9 mb-3 sm:mb-4 lg:mb-7">What we got to say</h1>
+                    <p>These alternatives can add a different tone or emphasis depending on how you want <br> to
+                        introduce your
+                        creative team. Let me know if you'd like any specific adjustments!</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
+            <div class="container">
+
+
+                <article
+                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center md:items-start gap-6 gap-y-12"
+                        aria-label="مقالات ویژه">
+                    {% for article in articles %}
+                        <div class="max-w-[370px] reveal-me underline-hover-effect group">
+                            <figure class="overflow-hidden">
+                                {% thumbnail article.image "800x800" quality=90 as im %}
+                                    <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
+                                         loading="lazy" src="{{ im.url }}"
+                                         data-src="{{ im.url }}"
+                                         alt="{{ article.title }}">
+                                {% endthumbnail %}
+
+                            </figure>
+                            <p class="text-sm leading-[1.1] tracking-[1.12px] uppercase font-poppins font-normal mt-[30px] mb-5">
+                                {{ article.create_date|to_jalali:"%Y/%m/%d" }}
+                            </p>
+                            <a href="{% url 'articles_detail' slug=article.slug %}" aria-label="مشاهده مقاله تغییر چهره تبلیغات دیجیتال">
+                                <div class="blog-title mb-9">
+                                    <h3 class="text[25px] md:text-3xl lg:text-4xl lg:leading-[1.2] lg:tracking-[-0.72px]">
+                                        {{ article.title }}
+                                    </h3>
+                                </div>
+                            </a>
+
+                            <a href="{% url 'articles_detail' slug=article.slug %}" class="rv-button rv-button-primary2"
+                               aria-label="مطالعه مقاله در 3 دقیقه">
+                                <div class="rv-button-top !text-center flex items-center">
+                                    <span class="pr-1">3 minute read</span>
+                                    <img loading="lazy" class="inline dark:hidden" src="{% static 'images/icons/top-arrow.svg' %}"
+                                         alt=""
+                                         aria-hidden="true">
+                                    <img loading="lazy" class="hidden dark:inline" src="{% static 'images/icons/top-arrow-dark.svg' %}"
+                                         alt="" aria-hidden="true">
+                                </div>
+                                <div class="rv-button-bottom !text-center flex items-center">
+                                    <span class="pr-1">3 minute read</span>
+                                    <img loading="lazy" class="inline" src="{% static 'images/icons/top-arrow.svg' %}" alt=""
+                                         aria-hidden="true">
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+
+                </article>
+
+                <div class="flex justify-center items-center mt-10 md:mt-14 reveal-me">
+                    <nav class="pagination-container pt-2" aria-label="صفحه‌بندی">
+                        <ul class="flex flex-wrap justify-center items-center gap-2 md:gap-3" dir="ltr">
+                            {% if page_obj.has_previous %}
+
+                                <li>
+                                    <a href="?page={{ page_obj.previous_page_number }}"
+                                       class="pagination-arrow flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300 {% if page_obj.number == pageNumber %} bg-secondary/20 font-medium {% endif %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rtl:rotate-180"
+                                             fill="none"
+                                             viewBox="0 0 24 24"
+                                             stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M15 19l-7-7 7-7"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% for pageNumber in paginator.page_range %}
+
+                                <li>
+                                    <a class="flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300 {% if page_obj.number == pageNumber %} bg-secondary/20 font-medium {% endif %}"
+                                       href="?page={{ pageNumber }}">
+                                        {{ pageNumber }}
+                                    </a>
+                                </li>
+
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li>
+                                    <a href="?page={{ page_obj.next_page_number }}"
+                                       class="pagination-arrow flex items-center justify-center w-10 h-10 rounded-md border border-secondary/20 hover:border-secondary hover:bg-secondary/10 transition-all duration-300 {% if page_obj.number == pageNumber %} bg-secondary/20 font-medium {% endif %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rtl:rotate-180"
+                                             fill="none"
+                                             viewBox="0 0 24 24"
+                                             stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!--=====================================
+       CTA Section
+    ======================================-->
+        <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-20 lg:pb-28 relative overflow-hidden">
+            <div class="absolute scale-x-[2.5] scale-y-[0.75] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2">
+                <img loading="lazy" src="{% static 'images/gradient-bg.png' %}" alt>
+            </div>
+            <div class="container">
+                <!-- CTA Heading -->
+                <h2 class="text-center xl:text-[96px] font-normal xl:leading-[1.1] xl:tracking-[-2.88px]">
+                    مشاوره میخوای؟
+                    <div
+                            class="cta-slider-container max-sm:block sm:inline-block max-sm:mb-5 translate-y-2 sm:translate-y-[20px] max-sm:mt-2.5">
+                        <div class="cta-inline-slider">
+                            <div class="slide">
+                                <img loading="lazy" src="{% static 'images/agent/01.jpg' %}" alt="Slide 1">
+                            </div>
+                            <div class="slide">
+                                <img loading="lazy" src="{% static 'images/agent/02.jpg' %}" alt="Slide 2">
+                            </div>
+                            <div class="slide">
+                                <img loading="lazy" src="{% static 'images/agent/03.jpg' %}" alt="Slide 3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="font-instrument sm:mt-10 italic block max-md:inline-block">ما باهات تماس میگیریم</span>
+                </h2>
+
+                <!-- CTA Buttons -->
+                <ul class="flex justify-center items-center mt-14 list-none">
+                    <!-- Primary CTA Button -->
+                    <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
+                        <a href="{% url 'contact-us' %}" class="rv-button rv-button-primary block md:inline-block">
+                            <div class="rv-button-top">
+                                <span>Contact Us</span>
+                            </div>
+                            <div class="rv-button-bottom">
+                                <span class="text-nowrap">Contact Us</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+
+{% endblock %}

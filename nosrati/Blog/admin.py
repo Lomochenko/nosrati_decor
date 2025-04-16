@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django_summernote.admin import SummernoteModelAdmin
 
 from .forms import ArticleDetailInlineForm
-from .models import Article, ArticleDetail
+from .models import Article, ArticleDetail, ProductRecommendation
 
 
 class ItemInline(admin.StackedInline):
@@ -12,10 +12,16 @@ class ItemInline(admin.StackedInline):
     extra = 1
 
 
+class ProductRecommendationInline(admin.StackedInline):
+    model = ProductRecommendation
+    extra = 2
+    fk_name = 'primary'
+
+
 @admin.register(Article)
 class ProductAdmin(SummernoteModelAdmin, admin.ModelAdmin):
     list_display = ['title', 'slug', 'author']
-    inlines = [ItemInline]
+    inlines = [ItemInline, ProductRecommendationInline]
     summernote_fields = ('article_detail_set.content',)
 
     def save_model(self, request: HttpRequest, obj: Article, form, change):

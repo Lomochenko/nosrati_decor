@@ -60,3 +60,20 @@ class ContactUs(models.Model):
     class Meta:
         verbose_name = 'راه ارتباطی'
         verbose_name_plural = 'راه ارتباطی'
+
+
+class Employee(models.Model):
+    title = models.CharField(max_length=48, verbose_name='نام')
+    photo = models.ImageField(upload_to='about/', verbose_name='عکس', null=True, blank=True)
+    job = models.CharField(max_length=48, verbose_name='سمت')
+    phone = models.CharField(max_length=16, verbose_name='شماره', null=True, blank=True)
+    content = models.TextField(verbose_name='توضیحات', null=True, blank=True)
+    whatsapp = models.URLField(max_length=256, verbose_name='لینک واتس آپ', null=True, blank=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'پرسنل'
+        verbose_name_plural = 'پرسنل'

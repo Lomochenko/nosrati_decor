@@ -1,0 +1,311 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}
+    درباره با ما
+{% endblock %}
+
+
+{% block content %}
+    <main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark" role="main" aria-label="صفحه درباره ما">
+        <!--=====================================
+       Page Header V2
+    ======================================-->
+        <section class="pt-28 pb-14 md:pb-20 lg:pb-[100px]" aria-label="هدر صفحه">
+            <div class="container reveal-me">
+                <!-- Top Content Row -->
+                <div>
+                    <!-- "About" Title -->
+                    <!-- Large "Company" Text -->
+                    <h1
+                            class="text-6xl min-md:text-left text-center mb-4 sm:text-7xl md:text-8xl lg:text-[156px] font-instrument italic xl:text-[236px] xl:leading-[1.1]">
+                        Nosrati Decor
+                    </h1>
+
+                    <!-- Description Text -->
+                    <p class="max-w-[470px] min-md:text-right text-center ">
+                        We are dedicated to transforming ideas impactful solutions. With a focus
+                        on innovation excellence we partner with businesses around the globe to
+                        help them navigate complex challenges and growth.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!--=====================================
+      Promo Video Section
+    ======================================-->
+        <section class="video-section reveal-me relative overflow-hidden" dir="ltr" aria-label="ویدیوی معرفی">
+            <!-- Video Wrapper -->
+            <div class="w-full h-fit video-wrapper scale-50 origin-top">
+                <!-- Autoplay Muted Looping Promo Video -->
+                <video class="w-full h-full" autoplay muted loop aria-label="ویدیوی معرفی شرکت">
+                    <source src="{% static 'images/interior.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+
+        <!--=========================
+       About Section Area
+    ==========================-->
+        <section
+                class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] pt-28 md:pt-32 lg:pt-44 xl:pt-[200px] relative overflow-hidden about"
+                aria-label="درباره ما">
+            <div class="container">
+                <!-- Content Wrapper -->
+                <div class="flex flex-col items-center lg:items-stretch justify-center lg:justify-normal reveal-me">
+
+                    <!-- About Description -->
+                    <h3 class="mt-[34px] mx-auto reveal-text relative overflow-hidden">
+                        We specialize in designing cutting-edge web
+                        <br class="hidden sm:block">
+                        experiences that flawlessly blend creativity with
+                        <br class="hidden sm:block">
+                        innovative technology.
+                        <br>
+                        <br>
+                        We provide customized solutions for <br class="hidden sm:block">
+                        enhancing your existing site or building <br class="hidden sm:block">
+                        a brand-new digital platform from the ground up
+                    </h3>
+                </div>
+            </div>
+        </section>
+        <!--=====================================
+       Team Member Showcase Section
+    ======================================-->
+        <section
+                class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative z-50 overflow-hidden"
+                aria-label="تیم ما">
+
+
+            <div class="container reveal-me">
+                <!-- Main Profile Card -->
+                {% for employee in employees %}
+                    {% if forloop.first %}
+                        <div
+                                class="our-team-details flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center border dark:border-dark p-5 lg:p-10 bg-backgroundBody dark:bg-dark">
+                            <figure class="max-lg:w-full lg:max-w-[330px] lg:max-h-[350px]">
+                                {% thumbnail employee.photo "800x800" quality=90 as im %}
+                                    <img class="w-full object-cover"
+                                         loading="lazy" src="{{ im.url }}"
+                                         data-src="{{ im.url }}"
+                                         alt="{{ employee.title }}">
+                                {% endthumbnail %}
+
+                            </figure>
+
+                            <!-- Profile Details Container -->
+                            <div>
+                                <div class="flex flex-col gap-y-10 md:flex-row justify-between mb-5 lg:mb-10">
+                                    <div>
+                                        <h2 class="lg:text-4xl lg:leading-[1.2] lg:-tracking-[1.08px] mb-3">
+                                            {{ employee.title }}
+                                        </h2>
+
+                                        <p class="text-lg font-light leading-[20px]">{{ employee.job }}</p>
+                                    </div>
+                                    <ul class="flex gap-5 md:self-end">
+                                        <li>
+                                            <a href="{{ employee.whatsapp }}"
+                                               class=" flex items-center group hover:text-primary transition-colors duration-300"
+                                               aria-label="واتساپ ماروین مکینی">
+                                                <div
+                                                        class="w-6 h-10 rounded-full bg-primary/20 auto-color flex items-center justify-center mr-3 group-hover:bg-primary/40 transition-all duration-300"
+                                                        aria-hidden="true">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white"
+                                                         viewBox="0 0 24 24" fill="none"
+                                                         stroke="rgb(18 216 204 / var(--tw-bg-opacity))"
+                                                         stroke-width="1.2" stroke-linecap="round"
+                                                         stroke-linejoin="round">
+                                                        <path
+                                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <span
+                                                        class="group-hover:text-primary transition-colors duration-300 font-medium block transition-colors font-semibold hover:text-primary">WhatsApp</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <!-- Telephone Link -->
+                                            <a href="tel:{{ employee.phone }}"
+                                               class="flex items-center group hover:text-primary transition-colors duration-300"
+                                               aria-label="تماس تلفنی با ماروین مکینی">
+                                                <div
+                                                        class="w-6 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3 group-hover:bg-primary/40 transition-all duration-300"
+                                                        aria-hidden="true">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white"
+                                                         viewBox="0 0 24 24" fill="none"
+                                                         stroke="rgb(18 216 204 / var(--tw-bg-opacity))"
+                                                         stroke-width="1.2" stroke-linecap="round"
+                                                         stroke-linejoin="round">
+                                                        <path
+                                                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <span
+                                                        class=" group-hover:text-primary transition-colors duration-300 font-medium block  transition-colors font-semibold hover:text-primary">{{ employee.phone }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="max-w-[730px] border-t dark:border-dark pt-5 lg:pt-10">
+                                    <p>
+                                        {{ employee.content }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+
+                <!-- Team Member Selection Tabs -->
+                <div class="flex max-lg:flex-wrap gap-6 justify-center mt-[30px]">
+                    {% for employee in employees %}
+                        {% if forloop.first %}
+                            <div
+                                    class="tab-member max-w-[370px] flex-auto border dark:border-dark p-5 flex items-center h-auto gap-5 transitionTimingFunction tab-active"
+                                    data-member="marvin">
+                                <figure>
+                                    {% thumbnail employee.photo "800x800" quality=90 as im %}
+                                    <img class="w-full object-cover"
+                                         loading="lazy" src="{{ im.url }}"
+                                         data-src="{{ im.url }}"
+                                         alt="{{ employee.title }}">
+                                {% endthumbnail %}
+                                </figure>
+                                <div>
+                                    <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3">
+                                        {{ employee.title }}
+                                    </h3>
+                                    <p>{{ employee.job }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div
+                                    class="tab-member max-w-[370px] flex-auto border dark:border-dark p-5 flex items-center h-auto gap-5 transitionTimingFunction"
+                                    data-member="marvin">
+                                <figure>
+                                    {% thumbnail employee.photo "800x800" quality=90 as im %}
+                                    <img class="w-full object-cover"
+                                         loading="lazy" src="{{ im.url }}"
+                                         data-src="{{ im.url }}"
+                                         alt="{{ employee.title }}">
+                                {% endthumbnail %}
+                                </figure>
+                                <div>
+                                    <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3">
+                                        {{ employee.title }}
+                                    </h3>
+                                    <p>{{ employee.job }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <!--=====================================
+       FAQ Section
+    ======================================-->
+        <section
+                class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
+            <div
+                    class="absolute scale-y-[3.4] sm:scale-y-[1.6] md:scale-y-[1.5] lg:scale-y-[1.5] xl:scale-y-[1.4] 2xl:scale-y-[1] scale-x-[2.8] md:scale-x-[1.9] lg:scale-x-[1.7] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 -z-30">
+                <img src="/static/images/gradient-bg.png" alt="gradient-bg">
+            </div>
+            <div class="container">
+                <!-- FAQ Section Title -->
+                <h2 class="mb-10 md:mb-20 text-center text-appear">
+                    Frequently Asked <span class="font-instrument italic">Questions</span>
+                </h2>
+
+                <!-- FAQ Items Container -->
+                <div class="max-w-[900px] w-full mx-auto [&>*:not(:last-child)]:mb-6 reveal-me">
+                    <!-- FAQ Item 1 -->
+                    {% for answer in answers %}
+                        <div
+                                class="accordion-item overflow-hidden bg-backgroundBody dark:bg-dark border border-transparent dark:border-transparent duration-300">
+                            <div class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10">
+                                <h3
+                                        class="text-lg sm:text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10">
+                                    {{ answer.question }}
+                                </h3>
+                                <div class="accordion-header-icon dark:border-dark"></div>
+                            </div>
+                            <p class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0">
+                                {{ answer.answer }}
+                            </p>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <!--=====================================
+       CTA Section
+    ======================================-->
+        <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-20 lg:pb-28 relative overflow-hidden"
+                 aria-label="تماس با ما">
+            <div class="absolute scale-x-[2.5] scale-y-[0.75] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2"
+                 aria-hidden="true">
+                <img loading="lazy" src="{% static 'images/gradient-bg.png' %}" alt="">
+            </div>
+            <div class="container">
+                <!-- CTA Heading -->
+                <h2 class="text-center xl:text-[96px] font-normal xl:leading-[1.1] xl:tracking-[-2.88px]">
+                    مشاوره میخوای؟
+                    <div
+                            class="cta-slider-container max-sm:block sm:inline-block max-sm:mb-5 translate-y-2 sm:translate-y-[20px] max-sm:mt-2.5"
+                            aria-label="اسلایدر تصاویر">
+                        <div class="cta-inline-slider">
+                            <div class="slide">
+                                <img loading="lazy" src="{% static 'images/agent/01.jpg' %}" alt="تصویر مشاور 1">
+                            </div>
+                            <div class="slide">
+                                <img loading="lazy" src="{% static 'images/agent/02.jpg' %}" alt="تصویر مشاور 2">
+                            </div>
+                            <div class="slide">
+                                <img loading="lazy" src="{% static 'images/agent/03.jpg' %}" alt="تصویر مشاور 3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="font-instrument sm:mt-10 italic block max-md:inline-block">ما باهات تماس میگیریم</span>
+                </h2>
+
+                <!-- CTA Buttons -->
+                <ul class="flex justify-center items-center mt-14 list-none">
+                    <!-- Primary CTA Button -->
+                    <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
+                        <a href="{% url 'contact-us' %}" class="rv-button rv-button-primary block md:inline-block"
+                           aria-label="تماس با ما">
+                            <div class="rv-button-top">
+                                <span>Contact Us</span>
+                            </div>
+                            <div class="rv-button-bottom">
+                                <span class="text-nowrap">Contact Us</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+{% endblock %}
