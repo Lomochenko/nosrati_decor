@@ -594,6 +594,9 @@ p {
 .auto-color {
   color: #181818b3;
 }
+.fix-color {
+  color: rgb(237 240 245 / 0.7);;
+}
 
 @media (min-width: 768px) {
   p {
