@@ -226,11 +226,53 @@
                 </div>
             </div>
         </section>
+        <!--=====================================
+       CTA Section
+    ======================================-->
+        {% include 'component/contact_us.html' %}
 
 
         <!--=====================================
-       Featured Insights Section
-    ======================================-->
+           FAQ Section
+        ======================================-->
+        <section
+                class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
+            <div
+                    class="absolute scale-y-[3.4] sm:scale-y-[1.6] md:scale-y-[1.5] lg:scale-y-[1.5] xl:scale-y-[1.4] 2xl:scale-y-[1] scale-x-[2.8] md:scale-x-[1.9] lg:scale-x-[1.7] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 -z-30">
+                <img src="/static/images/gradient-bg.png" alt="gradient-bg">
+            </div>
+            <div class="container">
+                <!-- FAQ Section Title -->
+                <h2 class="mb-10 md:mb-20 text-center text-appear">
+                    Frequently Asked <span class="font-instrument italic">Questions</span>
+                </h2>
+
+                <!-- FAQ Items Container -->
+                <div class="max-w-[900px] w-full mx-auto [&>*:not(:last-child)]:mb-6 reveal-me">
+                    <!-- FAQ Item 1 -->
+                    {% for answer in answers %}
+                        <div
+                                class="accordion-item overflow-hidden bg-backgroundBody dark:bg-dark border border-transparent dark:border-transparent duration-300">
+                            <div class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10">
+                                <h3
+                                        class="text-lg sm:text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10">
+                                    {{ answer.question }}
+                                </h3>
+                                <div class="accordion-header-icon dark:border-dark"></div>
+                            </div>
+                            <p class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0">
+                                {{ answer.answer }}
+                            </p>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </section>
+        <!--=====================================
+               Featured Insights Section
+            ======================================-->
         <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] z-20">
             <div class="container">
                 <!-- Section Header -->
@@ -319,50 +361,6 @@
         </section>
 
 
-        <!--=====================================
-       FAQ Section
-    ======================================-->
-        <section
-                class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
-            <div
-                    class="absolute scale-y-[3.4] sm:scale-y-[1.6] md:scale-y-[1.5] lg:scale-y-[1.5] xl:scale-y-[1.4] 2xl:scale-y-[1] scale-x-[2.8] md:scale-x-[1.9] lg:scale-x-[1.7] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 -z-30">
-                <img src="/static/images/gradient-bg.png" alt="gradient-bg">
-            </div>
-            <div class="container">
-                <!-- FAQ Section Title -->
-                <h2 class="mb-10 md:mb-20 text-center text-appear">
-                    Frequently Asked <span class="font-instrument italic">Questions</span>
-                </h2>
-
-                <!-- FAQ Items Container -->
-                <div class="max-w-[900px] w-full mx-auto [&>*:not(:last-child)]:mb-6 reveal-me">
-                    <!-- FAQ Item 1 -->
-                    {% for answer in answers %}
-                        <div
-                                class="accordion-item overflow-hidden bg-backgroundBody dark:bg-dark border border-transparent dark:border-transparent duration-300">
-                            <div class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10">
-                                <h3
-                                        class="text-lg sm:text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10">
-                                    {{ answer.question }}
-                                </h3>
-                                <div class="accordion-header-icon dark:border-dark"></div>
-                            </div>
-                            <p class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0">
-                                {{ answer.answer }}
-                            </p>
-                        </div>
-                    {% endfor %}
-
-
-                </div>
-            </div>
-        </section>
-
-
-        <!--=====================================
-       CTA Section
-    ======================================-->
-        {% include 'component/contact_us.html' %}
     </main>
 
 {% endblock %}

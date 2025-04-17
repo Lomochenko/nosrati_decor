@@ -172,6 +172,60 @@
             </div>
         </section>
         <!--=====================================
+       Next Project Section
+    ======================================-->
+        <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative">
+            <div class="absolute left-1/2 scale-y-75 scale-x-[1.8] top-1/2 -translate-y-1/2 -translate-x-1/2">
+                <img src="{% static 'images/gradient-bg.png' %}" alt>
+            </div>
+            <div class="container">
+                <!-- Section Heading -->
+                <h2
+                        class="text-[46px] sm:text-5xl md:text-[52px] max-md:text-left max-lg:leading-[1.33] lg:text-7xl font-normal !leading-[1.3] lg:tracking-[-2.88px] mb-9 xl:mb-[50px] text-appear">
+                    Next project
+                </h2>
+
+                <!-- Project Preview Container -->
+                <a href="{% url 'product-page' slug=next_category.slug %}">
+                    <div class="flex flex-col md:flex-row items-center gap-10 reveal-me underline-hover-effect group">
+                        <!-- Project Image -->
+
+                        <figure class="md:max-w-[372px] max-md:w-full md:h-[328px] overflow-hidden">
+                            {% if next_category.photo %}
+                                {% thumbnail next_category.photo "800x800" quality=90 as im %}
+                                    <img class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
+                                         loading="lazy" src="{{ im.url }}"
+                                         data-src="{{ im.url }}"
+                                         alt="{{ next_category.title }}">
+                                {% endthumbnail %}
+                            {% endif %}
+
+                        </figure>
+
+                        <!-- Project Details -->
+                        <div class="self-start md:self-center">
+                            <!-- Project Label -->
+                            <p
+                                    class="uppercase text-xs text-secondary dark:text-backgroundBody font-poppins font-normal leading-6 tracking-[8px]">
+                                Project
+                            </p>
+
+                            <!-- Project Title Link -->
+
+                            <div class="blog-title mb-1">
+                                <h3 class="text-4xl md:text-[56px] md:leading-[1.2] md:tracking-[-1.68px] mt-6 mb-4">
+                                    {{ next_category.title }}
+                                </h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+
+        <!--=====================================
        FAQ Section
     ======================================-->
         <section
@@ -346,6 +400,12 @@
             </div>
         </section>
         <!--=====================================
+           CTA Section
+        ======================================-->
+        {% include 'component/contact_us.html' %}
+
+
+        <!--=====================================
        Featured Insights Section
     ======================================-->
         <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] z-20">
@@ -434,62 +494,7 @@
                 </div>
             </div>
         </section>
-        <!--=====================================
-       Next Project Section
-    ======================================-->
-        <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative">
-            <div class="absolute left-1/2 scale-y-75 scale-x-[1.8] top-1/2 -translate-y-1/2 -translate-x-1/2">
-                <img src="{% static 'images/gradient-bg.png' %}" alt>
-            </div>
-            <div class="container">
-                <!-- Section Heading -->
-                <h2
-                        class="text-[46px] sm:text-5xl md:text-[52px] max-md:text-left max-lg:leading-[1.33] lg:text-7xl font-normal !leading-[1.3] lg:tracking-[-2.88px] mb-9 xl:mb-[50px] text-appear">
-                    Next project
-                </h2>
 
-                <!-- Project Preview Container -->
-                <a href="{% url 'product-page' slug=next_category.slug %}">
-                    <div class="flex flex-col md:flex-row items-center gap-10 reveal-me underline-hover-effect group">
-                        <!-- Project Image -->
-
-                        <figure class="md:max-w-[372px] max-md:w-full md:h-[328px] overflow-hidden">
-                            {% if next_category.photo %}
-                                {% thumbnail next_category.photo "800x800" quality=90 as im %}
-                                    <img class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-                                         loading="lazy" src="{{ im.url }}"
-                                         data-src="{{ im.url }}"
-                                         alt="{{ next_category.title }}">
-                                {% endthumbnail %}
-                            {% endif %}
-
-                        </figure>
-
-                        <!-- Project Details -->
-                        <div class="self-start md:self-center">
-                            <!-- Project Label -->
-                            <p
-                                    class="uppercase text-xs text-secondary dark:text-backgroundBody font-poppins font-normal leading-6 tracking-[8px]">
-                                Project
-                            </p>
-
-                            <!-- Project Title Link -->
-
-                            <div class="blog-title mb-1">
-                                <h3 class="text-4xl md:text-[56px] md:leading-[1.2] md:tracking-[-1.68px] mt-6 mb-4">
-                                    {{ next_category.title }}
-                                </h3>
-                            </div>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
-        <!--=====================================
-       CTA Section
-    ======================================-->
-        {% include 'component/contact_us.html' %}
 
     </main>
 {% endblock %}
