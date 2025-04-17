@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>404</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="refresh" content="8; url = {% url 'home-page' %}"/>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Stylesheets -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+<main class="relative z-10 bg-backgroundBody dark:bg-dark" role="main" aria-label="صفحه خطای 404">
+    <!--=========================
+        404 Error Page Section
+    ==========================-->
+    <section class="pt-36 md:pt-12 lg:pt-0 2xl:pt-12 h-screen relative overflow-hidden" aria-label="محتوای صفحه خطا">
+        <div class="container">
+            <!-- Gradient Background Wrapper -->
+            <div id="hero-gradient-wrapper"
+                 class="absolute w-[80%] lg:w-full h-[80%] lg:h-full top-[35%] left-1/2 -translate-y-[35%] -translate-x-1/2 -z-10 blur-[60px]"
+                 aria-hidden="true">
+                <img loading="lazy" src="{% static 'images/hero-gradient-background.png' %}" alt="" id="hero-gradient"
+                     class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-0">
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex lg:mt-10 flex-col justify-center items-center reveal-me"
+                 aria-labelledby="error-title error-message">
+                <!-- 404 Title -->
+                <h1 id="error-title" class="text-[180px] md:leading-[1.05] font-instrument">
+                    404
+                </h1>
+
+                <!-- Error Message -->
+                <h2 id="error-message"
+                    class="mt-8 mb-8 md:mb-[50px] text-[36px] max-lg:leading-[1.33] lg:text-[87px] font-normal leading-[1.1] lg:tracking-[-2.83px]">
+                    صفحه مورد نظر پیدا نشد
+                </h2>
+
+                <!-- Back to Homepage Button -->
+                <a href="{% url 'home-page' %}" class="rv-button rv-button-primary" aria-label="بازگشت به صفحه اصلی">
+                    <div class="rv-button-top !text-center">
+                        <span>صفحه اصلی</span>
+                    </div>
+                    <div class="rv-button-bottom !text-center">
+                        <span>صفحه اصلی</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+</body>
+
+</html>
