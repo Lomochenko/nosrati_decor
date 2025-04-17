@@ -302,52 +302,7 @@
         <!--=====================================
        CTA Section
     ======================================-->
-        <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-20 lg:pb-28 relative overflow-hidden"
-                 aria-label="تماس با ما">
-            <div class="absolute scale-x-[2.5] scale-y-[0.75] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2"
-                 aria-hidden="true">
-                <img loading="lazy" src="{% static 'images/gradient-bg.png' %}" alt="">
-            </div>
-            <div class="container">
-                <!-- CTA Heading -->
-                <h2 class="text-center xl:text-[96px] font-normal xl:leading-[1.1] xl:tracking-[-2.88px]">
-                    مشاوره میخوای؟
-                    <div
-                            class="cta-slider-container max-sm:block sm:inline-block max-sm:mb-5 translate-y-2 sm:translate-y-[20px] max-sm:mt-2.5"
-                            aria-label="اسلایدر تصاویر">
-                        <div class="cta-inline-slider">
-                            <div class="slide">
-                                <img loading="lazy" src="{% static 'images/agent/01.jpg' %}" alt="تصویر مشاور 1">
-                            </div>
-                            <div class="slide">
-                                <img loading="lazy" src="{% static 'images/agent/02.jpg' %}" alt="تصویر مشاور 2">
-                            </div>
-                            <div class="slide">
-                                <img loading="lazy" src="{% static 'images/agent/03.jpg' %}" alt="تصویر مشاور 3">
-                            </div>
-                        </div>
-                    </div>
-
-                    <span class="font-instrument sm:mt-10 italic block max-md:inline-block">ما باهات تماس میگیریم</span>
-                </h2>
-
-                <!-- CTA Buttons -->
-                <ul class="flex justify-center items-center mt-14 list-none">
-                    <!-- Primary CTA Button -->
-                    <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
-                        <a href="{% url 'contact-us' %}" class="rv-button rv-button-primary block md:inline-block"
-                           aria-label="تماس با ما">
-                            <div class="rv-button-top">
-                                <span>Contact Us</span>
-                            </div>
-                            <div class="rv-button-bottom">
-                                <span class="text-nowrap">Contact Us</span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        {% include 'component/contact_us.html' %}
 
     </main>
 
