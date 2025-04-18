@@ -597,7 +597,7 @@ p {
   line-height: 1.65rem;
   font-weight: 400;
   color: #181818b3;
-  letter-spacing: 1.2px;
+  letter-spacing: .05em;
 }
 
 .my-bg-light {
@@ -4195,6 +4195,7 @@ a {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+  letter-spacing: .05em !important;
 }
 
 .text-lg {
@@ -4205,6 +4206,7 @@ a {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  letter-spacing: .035em !important;
 }
 
 .text-xl {
