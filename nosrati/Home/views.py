@@ -41,12 +41,17 @@ def site_header_component(request):
 
 
 def site_footer_component(request):
-    context = {
-        'contactUs': ContactUs.objects.filter(is_active=True).first(),
-        'first_category_slug': Category.objects.filter(is_active=True, parent=None).only('slug').first().slug,
-        'first': FirstContent.objects.filter(is_active=True).first(),
+    contact_us = ContactUs.objects.filter(is_active=True).first()
+    first_category_slug = Category.objects.filter(is_active=True, parent=None).only('slug').first()
+    first_content = FirstContent.objects.filter(is_active=True).first()
 
+    # اگر هر کدوم از مقادیر None بود، مقدار پیش فرض قرار بدید
+    context = {
+        'contactUs': contact_us if contact_us else 'محتوای مورد نظر یافت نشد',
+        'first_category_slug': first_category_slug.slug if first_category_slug else 'slug پیش‌فرض',
+        'first': first_content if first_content else 'محتوای پیش‌فرض'
     }
+
     return render(request, 'component/site_footer_component.html', context)
 
 

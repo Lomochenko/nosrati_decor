@@ -118,8 +118,11 @@
                            class="block text-white transition-colors duration-300 font-semibold hover:text-primary">home</a>
                     </li>
                     <li class="mb-4">
-                        <a href="{% url 'category-page' first_category_slug %}"
-                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">products</a>
+                        {% if first_category_slug %}
+                            <a href="{% url 'category-page' first_category_slug %}"
+                               class="block text-white transition-colors duration-300 font-semibold hover:text-primary">products</a>
+                        {% endif %}
+
                     </li>
                     <li class="mb-4">
                         <a href="{% url 'about-page' %}"
