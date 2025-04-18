@@ -52,31 +52,33 @@
                     </strong>
                 </div>
             </div>
-
-            <!-- skew Marquee Start -->
-            <div style="transform: translate3d(-200px, 0px, 0px) scale3d(1, 1, 1) rotateX(30deg) rotateY(17deg) rotateZ(342deg) skew(7deg, 359deg); transform-style: preserve-3d;"
-                 id="skew-Marquee" aria-label="گالری محصولات">
-                <div class="pb-16 lg:pb-48 pt-24">
-                    <!-- Marquee Wrapper -->
-                    <div class="relative">
-                        <!-- Infinite Scroll Container -->
-                        <div class="z-50 flex gap-5 w-fit flex-nowrap whitespace-nowrap will-change-transform marquee-inner reveal-me">
-                            {% for product in products %}
-                                <figure class="marquee-part flex items-center justify-center size-[370px] z-50 flex-shrink-0">
-                                    {% if product.photo %}
-                                        {% thumbnail product.photo "800x800" quality=90 as im %}
-                                            <a href="{% url 'product-page' slug=product.category.slug %}"
-                                               aria-label="مشاهده محصول {{ product.title }}">
-                                                <img src="{{ im.url }}" alt="{{ product.title }}">
-                                            </a>
-                                        {% endthumbnail %}
-                                    {% endif %}
-                                </figure>
-                            {% endfor %}
+            {% if products %}
+                <div style="transform: translate3d(-200px, 0px, 0px) scale3d(1, 1, 1) rotateX(30deg) rotateY(17deg) rotateZ(342deg) skew(7deg, 359deg); transform-style: preserve-3d;"
+                     id="skew-Marquee" aria-label="گالری محصولات">
+                    <div class="pb-16 lg:pb-48 pt-24">
+                        <!-- Marquee Wrapper -->
+                        <div class="relative">
+                            <!-- Infinite Scroll Container -->
+                            <div class="z-50 flex gap-5 w-fit flex-nowrap whitespace-nowrap will-change-transform marquee-inner reveal-me">
+                                {% for product in products %}
+                                    <figure class="marquee-part flex items-center justify-center size-[370px] z-50 flex-shrink-0">
+                                        {% if product.photo %}
+                                            {% thumbnail product.photo "800x800" quality=90 as im %}
+                                                <a href="{% url 'product-page' slug=product.category.slug %}"
+                                                   aria-label="مشاهده محصول {{ product.title }}">
+                                                    <img src="{{ im.url }}" alt="{{ product.title }}">
+                                                </a>
+                                            {% endthumbnail %}
+                                        {% endif %}
+                                    </figure>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
+            <!-- skew Marquee Start -->
+
         </section>
 
         <!--=====================================

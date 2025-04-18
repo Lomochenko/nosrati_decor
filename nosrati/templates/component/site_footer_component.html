@@ -7,7 +7,7 @@
             <!-- Reach Us Section -->
             <div class="pr-8 max-lg:basis-full">
                 <h5 class="uppercase text-sm font-amiri text-white mb-4 sm:mb-8 font-bold">
-                    Reach Us
+                    با ما در تماس باشید ...
                 </h5>
                 <p class="text-white text-base max-md:font-semibold mb-5 font-amiri">
                     {{ contactUs.address }}
@@ -17,10 +17,10 @@
                         class="flex p-4 group bg-primary bg-opacity-30 gap-4 justify-between items-center backdrop-blur-2xl max-w-[360px]">
                     <img loading="lazy" class="h-[55px] w-auto" src="{% static 'images/logo.svg' %}" alt="logo">
                     <div>
-                        <h6 class="text-sm font-amiri text-white font-bold">
-                            Schedule a Free Meeting
+                        <h6 class="text-sm font-amiri text-white text-center">
+                            تنظیم قرار ملاقات یا مشاوره رایگان
                         </h6>
-                        <p class="text-base text-white">1 spot left this month</p>
+
                     </div>
                     <a href="{% url 'contact-us' %}" dir="ltr">
                         <figure class="bg-primary w-[55px] h-[55px] cursor-pointer relative overflow-hidden">
@@ -115,28 +115,26 @@
                 <ul>
                     <li class="mb-4">
                         <a href="{% url 'home-page' %}"
-                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">home</a>
+                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">خانه</a>
                     </li>
                     <li class="mb-4">
                         {% if first_category_slug %}
                             <a href="{% url 'category-page' first_category_slug %}"
-                               class="block text-white transition-colors duration-300 font-semibold hover:text-primary">products</a>
+                               class="block text-white transition-colors duration-300 font-semibold hover:text-primary">محصولات</a>
                         {% endif %}
 
                     </li>
                     <li class="mb-4">
                         <a href="{% url 'about-page' %}"
-                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">about
-                            us</a>
+                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">درباره ما</a>
                     </li>
                     <li class="mb-4">
                         <a href="{% url 'contact-us' %}"
-                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">contact
-                            us</a>
+                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">مشاوره</a>
                     </li>
                     <li class="mb-4">
                         <a href="{% url 'article_page' %}"
-                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">blog</a>
+                           class="block text-white transition-colors duration-300 font-semibold hover:text-primary">مطالب مفید</a>
                     </li>
                 </ul>
             </div>

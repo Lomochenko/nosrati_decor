@@ -17,7 +17,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['firstContent'] = FirstContent.objects.filter(is_active=True).first()
-        context['mains'] = MainDescription.objects.filter(is_active=True)
+        context['mains'] = MainDescription.objects.filter(is_active=True).order_by('-id')
         context['products'] = Product.objects.select_related('category').filter(is_first=True, is_active=True).order_by(
             '-id')[:12]
         context['categories'] = Category.objects.prefetch_related('description_detail',
@@ -26,7 +26,7 @@ class HomeView(TemplateView):
                                                                                                               'photo',
                                                                                                               'slug')
         context['articles'] = Article.objects.filter(is_active=True).order_by('-create_date')[:3]
-        context['answers'] = Answer.objects.filter(is_active=True)
+        context['answers'] = Answer.objects.filter(is_active=True).order_by('-id')
         return context
 
 
