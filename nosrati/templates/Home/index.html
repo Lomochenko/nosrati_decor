@@ -2,9 +2,14 @@
 {% load static %}
 {% load thumbnail %}
 
-{% block title %}
-    نصرتی دکور
+{% block title %} نصرتی دکور {% endblock %}
+
+{% block header_references %}
+    <meta name="description"
+          content="از طراحی تا اجرا، همه‌چیز برای یک دکوراسیون داخلی خاص و حرفه‌ای! کابینت آشپزخانه، کمد دیواری، و طراحی فضای داخلی با تیم متخصص ما."/>
+    <meta name="keywords" content="{% for category in categories %} {{ category.title }} , {% endfor %}"/>
 {% endblock %}
+
 
 {% block content %}
 
@@ -23,9 +28,10 @@
             </div>
 
             <div class="max-w-screen-xl px-5 mx-auto">
-                <div class="reveal-me">
-                    <h1
-                            class="xl:text-[96px] font-semibold xl:leading-[1.1] xl:tracking-[-2.88px] max-lg:text-center font-satoshi">
+                <div class="reveal-me text-center">
+                    <h1 class="hidden sr-only">نصرتی دکور</h1>
+                    <strong
+                            class="big-text xl:text-[96px] font-semibold xl:leading-[1.1] xl:tracking-[-2.88px] max-lg:text-center font-satoshi">
                         {{ firstContent.title }}
                         <a href="#products">
                             <div class="cta-slider-container max-sm:block sm:inline-block max-sm:mb-7 translate-y-5"
@@ -44,7 +50,7 @@
                             </div>
                         </a>
                         Best Ideas, For Your Place.
-                    </h1>
+                    </strong>
                 </div>
             </div>
 
@@ -183,6 +189,7 @@
         <!--=====================================
        Services Accordion Section
     ======================================-->
+
         <section
                 class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
             <div
@@ -199,9 +206,7 @@
                                 <h3
                                         class="flex flex-col md:flex-row md:items-center gap-x-10 gap-y-3 text-[25px] lg:text-5xl md:font-medium font-normal leading-[25.2px] md:leading-[1.2] text-white">
                                     <span class="text-inherit"> {{ main.title }} </span>
-                                    <span class="text-base md:text-xl md:leading-[1.4] md:tracking-[0.4px] text-[#ffffff99] mt-2 pr-[2px]">
-                  {{ main.description }}
-                </span>
+
                                 </h3>
                                 <div class="accordion-header-iconV3">
                 <span>
@@ -273,92 +278,94 @@
         <!--=====================================
                Featured Insights Section
             ======================================-->
-        <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] z-20">
-            <div class="container">
-                <!-- Section Header -->
-                <div
-                        class="flex flex-col md:flex-row gap-y-4 gap-x-10 justify-center lg:justify-between items-start lg:items-center mb-10 md:mb-20">
-                    <h2 class="text-appear flex-1">
-                        <span class="font-instrument lg:text-[70px] italic">Insights</span>
-                        <br class="hidden lg:block">
-                        Stories
-                    </h2>
+        {% if articles %}
+            <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] z-20">
+                <div class="container">
+                    <!-- Section Header -->
+                    <div
+                            class="flex flex-col md:flex-row gap-y-4 gap-x-10 justify-center lg:justify-between items-start lg:items-center mb-10 md:mb-20">
+                        <h2 class="text-appear flex-1">
+                            <span class="font-instrument lg:text-[70px] italic">Insights</span>
+                            <br class="hidden lg:block">
+                            Stories
+                        </h2>
 
-                    <div class="lg:self-end max-md:w-full flex-1">
-                        <p class="text-appear md:justify-self-end max-w-lg md:text-right">
-                            Deep dives into emerging technologies, design trends, and digital
-                            transformation strategies.
-                        </p>
+                        <div class="lg:self-end max-md:w-full flex-1">
+                            <p class="text-appear md:justify-self-end max-w-lg md:text-right">
+                                Deep dives into emerging technologies, design trends, and digital
+                                transformation strategies.
+                            </p>
 
-                        <ul class="justify-self-end max-md:w-full mt-5 md:mt-10 reveal-me">
-                            <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
-                                <a href="{% url 'article_page' %}"
-                                   class="rv-button rv-button-white block md:inline-block">
-                                    <div class="rv-button-top">
-                                        <span>Explore Our Blogs</span>
+                            <ul class="justify-self-end max-md:w-full mt-5 md:mt-10 reveal-me">
+                                <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
+                                    <a href="{% url 'article_page' %}"
+                                       class="rv-button rv-button-white block md:inline-block">
+                                        <div class="rv-button-top">
+                                            <span>Explore Our Blogs</span>
+                                        </div>
+                                        <div class="rv-button-bottom">
+                                            <span>Explore Our Blogs</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Blog Posts Grid -->
+                    <div
+                            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center lg:items-start gap-6 max-lg:gap-y-10">
+                        <!-- Blog Post 1 -->
+                        {% for article in articles %}
+                            <div class="reveal-me md:max-w-[355px] group">
+                                <a href="{% url 'articles_detail' slug=article.slug %}" class="w-full">
+                                    <figure class="overflow-hidden">
+                                        {% if article.image %}
+                                            {% thumbnail article.image "800x800" quality=90 as im %}
+                                                <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
+                                                     loading="lazy" src="{{ im.url }}"
+                                                     data-src="{{ im.url }}"
+                                                     alt="{{ article.title }}">
+                                            {% endthumbnail %}
+                                        {% endif %}
+
+
+                                    </figure>
+                                    <div class="rv-badge mt-7">
+                                        <span class="rv-badge-text">Artificial Intelligence</span>
                                     </div>
-                                    <div class="rv-button-bottom">
-                                        <span>Explore Our Blogs</span>
+                                    <div class="blog-title mt-5 mb-[30px]">
+                                        <h3 class="text[25px] md:text-3xl lg:leading-[1.2] lg:tracking-[-0.72px]">
+                                            {{ article.title }}...
+                                        </h3>
                                     </div>
+
+                                    <a href="{% url 'articles_detail' slug=article.slug %}"
+                                       class="rv-button rv-button-primary2 w-full md:w-auto">
+                                        <div class="rv-button-top !text-center flex items-center">
+                                            <span class="pr-1">5 minute read</span>
+                                            <img loading="lazy" class="inline dark:hidden"
+                                                 src="/static/images/icons/top-arrow.svg"
+                                                 alt="Arrow Icon">
+                                            <img loading="lazy" class="hidden dark:inline"
+                                                 src="/static/images/icons/top-arrow-dark.svg"
+                                                 alt="Arrow Icon">
+                                        </div>
+                                        <div class="rv-button-bottom !text-center flex items-center">
+                                            <span class="pr-1">5 minute read</span>
+                                            <img loading="lazy" class="inline" src="/static/images/icons/top-arrow.svg"
+                                                 alt="Arrow Icon">
+                                        </div>
+                                    </a>
                                 </a>
-                            </li>
-                        </ul>
+                            </div>
+                        {% endfor %}
+
+
                     </div>
                 </div>
-
-                <!-- Blog Posts Grid -->
-                <div
-                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center lg:items-start gap-6 max-lg:gap-y-10">
-                    <!-- Blog Post 1 -->
-                    {% for article in articles %}
-                        <div class="reveal-me md:max-w-[355px] group">
-                            <a href="{% url 'articles_detail' slug=article.slug %}" class="w-full">
-                                <figure class="overflow-hidden">
-                                    {% if article.image %}
-                                        {% thumbnail article.image "800x800" quality=90 as im %}
-                                            <img class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-                                                 loading="lazy" src="{{ im.url }}"
-                                                 data-src="{{ im.url }}"
-                                                 alt="{{ article.title }}">
-                                        {% endthumbnail %}
-                                    {% endif %}
-
-
-                                </figure>
-                                <div class="rv-badge mt-7">
-                                    <span class="rv-badge-text">Artificial Intelligence</span>
-                                </div>
-                                <div class="blog-title mt-5 mb-[30px]">
-                                    <h3 class="text[25px] md:text-3xl lg:leading-[1.2] lg:tracking-[-0.72px]">
-                                        {{ article.title }}...
-                                    </h3>
-                                </div>
-
-                                <a href="{% url 'articles_detail' slug=article.slug %}"
-                                   class="rv-button rv-button-primary2 w-full md:w-auto">
-                                    <div class="rv-button-top !text-center flex items-center">
-                                        <span class="pr-1">5 minute read</span>
-                                        <img loading="lazy" class="inline dark:hidden"
-                                             src="/static/images/icons/top-arrow.svg"
-                                             alt="Arrow Icon">
-                                        <img loading="lazy" class="hidden dark:inline"
-                                             src="/static/images/icons/top-arrow-dark.svg"
-                                             alt="Arrow Icon">
-                                    </div>
-                                    <div class="rv-button-bottom !text-center flex items-center">
-                                        <span class="pr-1">5 minute read</span>
-                                        <img loading="lazy" class="inline" src="/static/images/icons/top-arrow.svg"
-                                             alt="Arrow Icon">
-                                    </div>
-                                </a>
-                            </a>
-                        </div>
-                    {% endfor %}
-
-
-                </div>
-            </div>
-        </section>
+            </section>
+        {% endif %}
 
 
     </main>

@@ -20,7 +20,6 @@ class FirstContent(models.Model):
 
 class MainDescription(models.Model):
     title = models.CharField(max_length=128, verbose_name='نام سایت')
-    description = models.TextField(verbose_name='توضیحات اولیه')
     content = models.TextField(verbose_name='توضیحات تکمیلی')
     is_active = models.BooleanField(default=True, verbose_name='فعال')
 

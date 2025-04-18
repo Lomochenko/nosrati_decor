@@ -96,13 +96,12 @@
     </div>
     <nav class="z-[1000] w-full fixed px-5 sm:px-8 pt-1 sm:pt-5 nav-top">
         <div class="flex justify-between">
-            <a href="{% url 'home-page' %}">
-                <img loading="lazy" class="max-h-[68px] w-auto inline-block dark:hidden"
+            <a href="{% url 'home-page' %}" aria-label="صفحه اصلی">
+                <img loading="lazy" class="max-h-[68px] w-auto inline-block dark:hidden" src="{{ first.photo.url }}"
+                     alt="لوگوی نصرتی دکور">
+                <img loading="lazy" class="max-h-[68px] w-auto dark:inline-block hidden my-bg-light"
                      src="{{ first.photo.url }}"
-                     alt="logo">
-                <img loading="lazy" class="max-h-[68px] w-auto dark:inline-block hidden"
-                     src="{{ first.photo.url }}"
-                     alt="logo">
+                     alt="لوگوی نصرتی دکور - حالت تاریک">
             </a>
             <div class="flex items-center">
                 <div
@@ -129,7 +128,7 @@
                 <a href="{% url 'home-page' %}"
                    class="text-white text-[28px] md:text-[42px] xl:text-[56px] leading-[70px] xl:leading-[90px] menu-list-item-text">خانه</a>
             </li>
-            <li class="menu-list-item menu-list-item-anchor w-full {% if request.resolver_match.url_name == 'category-page' %}active{% endif %}">
+            <li class="menu-list-item menu-list-item-anchor w-full {% if request.resolver_match.url_name == 'category-page' %}active{% elif request.resolver_match.url_name == 'product-page' %}active{% endif %}">
                 <a href="#"
                    class="text-white text-[28px] md:text-[42px] xl:text-[56px] leading-[70px] xl:leading-[90px] menu-list-item-text">خدمات</a>
                 <ul class="menu-list-item-dropdown relative md:absolute top-0 w-full md:w-auto h-fit left-0 md:left-[48%]">

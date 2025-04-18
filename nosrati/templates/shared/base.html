@@ -8,18 +8,32 @@
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="title" content="نصرتی دکور"/>
+    {% block header_references %}{% endblock %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://metatags.io/"/>
+    <meta property="og:title" content="نصرتی دکور"/>
+    <meta property="og:description" content="طراحی و اجرای کابینت مدرن، کلاسیک و نئوکلاسیک با بهترین متریال روز. ارائه خدمات طراحی داخلی منزل، آشپزخانه، و فضاهای اداری با کیفیت بالا و قیمت مناسب."/>
+    <meta property="og:image" content="{% static 'images/darkLogo.png' %}"/>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="https://metatags.io/"/>
+    <meta property="twitter:title" content="نصرتی دکور"/>
+    <meta property="twitter:description" content="از طراحی تا اجرا، همه‌چیز برای یک دکوراسیون داخلی خاص و حرفه‌ای! کابینت آشپزخانه، کمد دیواری، و طراحی فضای داخلی با تیم متخصص ما."/>
+    <meta property="twitter:image" content="{% static 'images/darkLogo.png' %}"/>
+
+    <link href="{% static 'images/darkLogo.png' %}" rel="icon">
+    <!-- Vendor CSS style -->
+
     <title>{% block title %}{% endblock %}</title>
 
-    {% block header_references %}{% endblock %}
     <!-- Stylesheets -->
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
 
-    <!--Favicon-->
-{#        <link rel="icon" type="image/png" href="{% static 'images/favicon-96x96.png' %}" sizes="96x96">#}
-{#        <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">#}
-{#        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">#}
-{#        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">#}
-{#        <link rel="manifest" href="{% static 'images/site.webmanifest' %}">#}
 </head>
 
 <body>

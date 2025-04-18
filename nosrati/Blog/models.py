@@ -34,7 +34,7 @@ class Article(models.Model):
 
 class ProductRecommendation(models.Model):
     primary = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='primary_recommendation')
-    recommendation = models.ForeignKey(Article, on_delete=models.CASCADE)
+    recommendation = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True)
     rank = models.PositiveSmallIntegerField(default=0)
 
     def __str__(self):

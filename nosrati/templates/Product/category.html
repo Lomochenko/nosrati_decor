@@ -1,8 +1,14 @@
 {% extends 'shared/base.html' %}
 {% load static %}
 {% load thumbnail %}
-{% block title %}
-    {{ category.title }}
+{% block title %} محصولات {{ category.title }} | نصرتی دکور {% endblock %}
+{% block header_references %}
+
+    <meta name="description" content="با محصولات متنوع نصرتی دکور، طراحی داخلی منزل یا محل کارتان را متحول کنید. انواع کابینت مدرن، کلاسیک و محصولات چوبی با کیفیت بالا و طراحی خاص." />
+
+    <meta name="keywords"
+          content="طراحی داخلی, دکوراسیون داخلی, کابینت آشپزخانه, کابینت مدرن, کابینت کلاسیک, مقالات طراحی داخلی, ایده دکوراسیون, چیدمان منزل, بازسازی خانه, طراحی آشپزخانه, دکوراسیون منزل, ایده کابینت, رنگ کابینت, ترند دکوراسیون"/>
+
 {% endblock %}
 
 
