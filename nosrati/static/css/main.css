@@ -597,7 +597,11 @@ p {
   line-height: 1.65rem;
   font-weight: 400;
   color: #181818b3;
+<<<<<<< HEAD:nosrati/static/css/main.css
   letter-spacing: 1.2px;
+=======
+  letter-spacing: .05em;
+>>>>>>> ec4ea85c836140e74c5e8b7c8c3268698ce5dd0a:css/main.css
 }
 
 .my-bg-light {
@@ -4195,6 +4199,7 @@ a {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+  letter-spacing: .05em !important;
 }
 
 .text-lg {
@@ -4205,6 +4210,7 @@ a {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  letter-spacing: .035em !important;
 }
 
 .text-xl {

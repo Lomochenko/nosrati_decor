@@ -43,7 +43,7 @@ class ProductView(ListView):
     template_name = 'Product/product.html'
     context_object_name = 'products'
     ordering = ('-id',)
-    paginate_by = 12
+    paginate_by = 15
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductView, self).get_context_data(*args, **kwargs)

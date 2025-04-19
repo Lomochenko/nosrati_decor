@@ -2,7 +2,7 @@
 {% load static %}
 {% load thumbnail %}
 {% block title %} {{ category.title }} | خرید و طراحی {{ category.title }} | نصرتی دکور {% endblock %}
-
+{% load jalali_tags %}
 
 {% block header_references %}
 
@@ -104,6 +104,9 @@
                                 <a class="w-full" data-fancybox="gallery"
                                    data-src="{{ im.url }}"
                                    data-caption="
+
+
+
                                            {% if product.content %}{{ product.content }}{% else %}{{ product.title }}{% endif %}">
                             {% endthumbnail %}
                             <figure class="overflow-hidden">
@@ -235,101 +238,106 @@
         <!--=====================================
        FAQ Section
     ======================================-->
-        <section
-                class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
-            <div
-                    class="absolute scale-y-[3.4] sm:scale-y-[1.6] md:scale-y-[1.5] lg:scale-y-[1.5] xl:scale-y-[1.4] 2xl:scale-y-[1] scale-x-[2.8] md:scale-x-[1.9] lg:scale-x-[1.7] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 -z-30">
-                <img src="{% static 'images/gradient-bg.png' %}" alt="gradient-bg">
-            </div>
-            <div class="container">
-                <!-- FAQ Section Title -->
-                <h2 class="mb-10 md:mb-20 text-center text-appear">
-                    سوالات متداول
-                </h2>
-
-                <!-- FAQ Items Container -->
-                <div class="max-w-[900px] w-full mx-auto [&>*:not(:last-child)]:mb-6 reveal-me">
-                    <!-- FAQ Item 1 -->
-                    {% for answer in category.answer_detail.all %}
-                        <div
-                                class="accordion-item overflow-hidden bg-backgroundBody dark:bg-dark border border-transparent dark:border-transparent duration-300">
-                            <div class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10">
-                                <h3
-                                        class="text-lg sm:text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10">
-                                    {{ answer.question }}
-                                </h3>
-                                <div class="accordion-header-icon dark:border-dark"></div>
-                            </div>
-                            <p class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0">
-                                {{ answer.answer }}
-                            </p>
-                        </div>
-                    {% endfor %}
-
+        {% if category.answer_detail.all %}
+            <section
+                    class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
+                <div
+                        class="absolute scale-y-[3.4] sm:scale-y-[1.6] md:scale-y-[1.5] lg:scale-y-[1.5] xl:scale-y-[1.4] 2xl:scale-y-[1] scale-x-[2.8] md:scale-x-[1.9] lg:scale-x-[1.7] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 -z-30">
+                    <img src="{% static 'images/gradient-bg.png' %}" alt="gradient-bg">
                 </div>
-            </div>
-        </section>
+                <div class="container">
+                    <!-- FAQ Section Title -->
+                    <h2 class="mb-10 md:mb-20 text-center text-appear">
+                        سوالات متداول
+                    </h2>
+
+                    <!-- FAQ Items Container -->
+                    <div class="max-w-[900px] w-full mx-auto [&>*:not(:last-child)]:mb-6 reveal-me">
+                        <!-- FAQ Item 1 -->
+                        {% for answer in category.answer_detail.all %}
+                            <div
+                                    class="accordion-item overflow-hidden bg-backgroundBody dark:bg-dark border border-transparent dark:border-transparent duration-300">
+                                <div class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10">
+                                    <h3
+                                            class="text-lg sm:text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10">
+                                        {{ answer.question }}
+                                    </h3>
+                                    <div class="accordion-header-icon dark:border-dark"></div>
+                                </div>
+                                <p class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0">
+                                    {{ answer.answer }}
+                                </p>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+
 
 
         <!--=====================================
         Blog Details Section Area
     ======================================-->
-        <section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
-            <div class="max-w-[1440px] mx-auto px-10 md:px-20">
+        {% if category.description_detail.all %}
+            <section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
+                <div class="max-w-[1440px] mx-auto px-10 md:px-20">
 
-                <!-- product Content Wrapper -->
-                <div
-                        class="flex flex-col gap-10 lg:flex-row justify-start mt-12 md:mt-[60px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
-                    <!-- Sidebar -->
-                    <aside class="min-w-[275px] flex-1">
-                        <div class="sticky top-23 max-md:mb-7">
-                            <div class="reveal-me">
-                                <!-- Table of Contents -->
-                                <h3 class="max-sm:text-[35px] max-md:text-[40px] md:text-[32px] mt-2 mb-4 lg:mb-10">
-                                    فهرست مطالب
-                                </h3>
-                                <ul class="[&>*:not(:last-child)]:mb-2 md:[&>*:not(:last-child)]:mb-4 font-amiri">
-                                    {% for description in category.description_detail.all|slice:":5" %}
-                                        <li>
-                                            <a href="#{{ description.id }}"
-                                               class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to">
-                                                {{ description.title }}
+                    <!-- product Content Wrapper -->
+                    <div
+                            class="flex flex-col gap-10 lg:flex-row justify-start mt-12 md:mt-[60px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
+                        <!-- Sidebar -->
+                        <aside class="min-w-[275px] flex-1">
+                            <div class="sticky top-23 max-md:mb-7">
+                                <div class="reveal-me">
+                                    <!-- Table of Contents -->
+                                    <h3 class="max-sm:text-[35px] max-md:text-[40px] md:text-[32px] mt-2 mb-4 lg:mb-10">
+                                        فهرست مطالب
+                                    </h3>
+                                    <ul class="[&>*:not(:last-child)]:mb-2 md:[&>*:not(:last-child)]:mb-4 font-amiri">
+                                        {% for description in category.description_detail.all|slice:":3" %}
+                                            <li>
+                                                <a href="#{{ description.id }}"
+                                                   class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to">
+                                                    {{ description.title }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+
+
+                                    </ul>
+                                    <p class="text-[15px] mt-10">{{ category.create_date|to_jalali:"%Y/%m/%d" }}: data
+                                        updated</p>
+                                    <!-- Social Share -->
+                                    <h3 class="max-sm:text-[35px] max-md:text-[40px] md:text-[32px] mt-5 sm:mt-7 md:mt-12 lg:mt-20 mb-7">
+                                        اشتراک گذاری
+                                    </h3>
+                                    <!-- Social Media Icons -->
+                                    <ul class="flex gap-5 items-center max-lg:mb-7">
+                                        <li
+                                                class="border-2 border-secondary dark:border-dark inline-block rounded-full w-10 h-10 hover:bg-primary duration-300 relative">
+                                            <a href="https://discord.gg/fSxDJyvJmr" target="_blank">
+                      <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline dark:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000"
+                             viewBox="0 0 256 256">
+                          <path
+                                  d="M104,140a12,12,0,1,1-12-12A12,12,0,0,1,104,140Zm60-12a12,12,0,1,0,12,12A12,12,0,0,0,164,128Zm74.45,64.9-67,29.71a16.17,16.17,0,0,1-21.71-9.1l-8.11-22q-6.72.45-13.63.46t-13.63-.46l-8.11,22a16.18,16.18,0,0,1-21.71,9.1l-67-29.71a15.93,15.93,0,0,1-9.06-18.51L38,58A16.07,16.07,0,0,1,51,46.14l36.06-5.93a16.22,16.22,0,0,1,18.26,11.88l3.26,12.84Q118.11,64,128,64t19.4.93l3.26-12.84a16.21,16.21,0,0,1,18.26-11.88L205,46.14A16.07,16.07,0,0,1,218,58l29.53,116.38A15.93,15.93,0,0,1,238.45,192.9ZM232,178.28,202.47,62s0,0-.08,0L166.33,56a.17.17,0,0,0-.17,0l-2.83,11.14c5,.94,10,2.06,14.83,3.42A8,8,0,0,1,176,86.31a8.09,8.09,0,0,1-2.16-.3A172.25,172.25,0,0,0,128,80a172.25,172.25,0,0,0-45.84,6,8,8,0,1,1-4.32-15.4c4.82-1.36,9.78-2.48,14.82-3.42L89.83,56s0,0-.12,0h0L53.61,61.93a.17.17,0,0,0-.09,0L24,178.33,91,208a.23.23,0,0,0,.22,0L98,189.72a173.2,173.2,0,0,1-20.14-4.32A8,8,0,0,1,82.16,170,171.85,171.85,0,0,0,128,176a171.85,171.85,0,0,0,45.84-6,8,8,0,0,1,4.32,15.41A173.2,173.2,0,0,1,158,189.72L164.75,208a.22.22,0,0,0,.21,0Z"/>
+                        </svg>
+                      </span>
+                                                <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:inline hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff"
+                             viewBox="0 0 256 256">
+                          <path
+                                  d="M104,140a12,12,0,1,1-12-12A12,12,0,0,1,104,140Zm60-12a12,12,0,1,0,12,12A12,12,0,0,0,164,128Zm74.45,64.9-67,29.71a16.17,16.17,0,0,1-21.71-9.1l-8.11-22q-6.72.45-13.63.46t-13.63-.46l-8.11,22a16.18,16.18,0,0,1-21.71,9.1l-67-29.71a15.93,15.93,0,0,1-9.06-18.51L38,58A16.07,16.07,0,0,1,51,46.14l36.06-5.93a16.22,16.22,0,0,1,18.26,11.88l3.26,12.84Q118.11,64,128,64t19.4.93l3.26-12.84a16.21,16.21,0,0,1,18.26-11.88L205,46.14A16.07,16.07,0,0,1,218,58l29.53,116.38A15.93,15.93,0,0,1,238.45,192.9ZM232,178.28,202.47,62s0,0-.08,0L166.33,56a.17.17,0,0,0-.17,0l-2.83,11.14c5,.94,10,2.06,14.83,3.42A8,8,0,0,1,176,86.31a8.09,8.09,0,0,1-2.16-.3A172.25,172.25,0,0,0,128,80a172.25,172.25,0,0,0-45.84,6,8,8,0,1,1-4.32-15.4c4.82-1.36,9.78-2.48,14.82-3.42L89.83,56s0,0-.12,0h0L53.61,61.93a.17.17,0,0,0-.09,0L24,178.33,91,208a.23.23,0,0,0,.22,0L98,189.72a173.2,173.2,0,0,1-20.14-4.32A8,8,0,0,1,82.16,170,171.85,171.85,0,0,0,128,176a171.85,171.85,0,0,0,45.84-6,8,8,0,0,1,4.32,15.41A173.2,173.2,0,0,1,158,189.72L164.75,208a.22.22,0,0,0,.21,0Z"/>
+                        </svg>
+                      </span>
                                             </a>
                                         </li>
-                                    {% endfor %}
 
-
-                                </ul>
-
-                                <!-- Social Share -->
-                                <h3 class="max-sm:text-[35px] max-md:text-[40px] md:text-[32px] mt-5 sm:mt-7 md:mt-12 lg:mt-20 mb-7">
-                                    اشتراک گذاری
-                                </h3>
-                                <!-- Social Media Icons -->
-                                <ul class="flex gap-5 items-center max-lg:mb-7">
-                                    <li
-                                            class="border-2 border-secondary dark:border-dark inline-block rounded-full w-10 h-10 hover:bg-primary duration-300 relative">
-                                        <a href="https://discord.gg/fSxDJyvJmr" target="_blank">
-                      <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline dark:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000"
-                             viewBox="0 0 256 256">
-                          <path
-                                  d="M104,140a12,12,0,1,1-12-12A12,12,0,0,1,104,140Zm60-12a12,12,0,1,0,12,12A12,12,0,0,0,164,128Zm74.45,64.9-67,29.71a16.17,16.17,0,0,1-21.71-9.1l-8.11-22q-6.72.45-13.63.46t-13.63-.46l-8.11,22a16.18,16.18,0,0,1-21.71,9.1l-67-29.71a15.93,15.93,0,0,1-9.06-18.51L38,58A16.07,16.07,0,0,1,51,46.14l36.06-5.93a16.22,16.22,0,0,1,18.26,11.88l3.26,12.84Q118.11,64,128,64t19.4.93l3.26-12.84a16.21,16.21,0,0,1,18.26-11.88L205,46.14A16.07,16.07,0,0,1,218,58l29.53,116.38A15.93,15.93,0,0,1,238.45,192.9ZM232,178.28,202.47,62s0,0-.08,0L166.33,56a.17.17,0,0,0-.17,0l-2.83,11.14c5,.94,10,2.06,14.83,3.42A8,8,0,0,1,176,86.31a8.09,8.09,0,0,1-2.16-.3A172.25,172.25,0,0,0,128,80a172.25,172.25,0,0,0-45.84,6,8,8,0,1,1-4.32-15.4c4.82-1.36,9.78-2.48,14.82-3.42L89.83,56s0,0-.12,0h0L53.61,61.93a.17.17,0,0,0-.09,0L24,178.33,91,208a.23.23,0,0,0,.22,0L98,189.72a173.2,173.2,0,0,1-20.14-4.32A8,8,0,0,1,82.16,170,171.85,171.85,0,0,0,128,176a171.85,171.85,0,0,0,45.84-6,8,8,0,0,1,4.32,15.41A173.2,173.2,0,0,1,158,189.72L164.75,208a.22.22,0,0,0,.21,0Z"/>
-                        </svg>
-                      </span>
-                                            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:inline hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff"
-                             viewBox="0 0 256 256">
-                          <path
-                                  d="M104,140a12,12,0,1,1-12-12A12,12,0,0,1,104,140Zm60-12a12,12,0,1,0,12,12A12,12,0,0,0,164,128Zm74.45,64.9-67,29.71a16.17,16.17,0,0,1-21.71-9.1l-8.11-22q-6.72.45-13.63.46t-13.63-.46l-8.11,22a16.18,16.18,0,0,1-21.71,9.1l-67-29.71a15.93,15.93,0,0,1-9.06-18.51L38,58A16.07,16.07,0,0,1,51,46.14l36.06-5.93a16.22,16.22,0,0,1,18.26,11.88l3.26,12.84Q118.11,64,128,64t19.4.93l3.26-12.84a16.21,16.21,0,0,1,18.26-11.88L205,46.14A16.07,16.07,0,0,1,218,58l29.53,116.38A15.93,15.93,0,0,1,238.45,192.9ZM232,178.28,202.47,62s0,0-.08,0L166.33,56a.17.17,0,0,0-.17,0l-2.83,11.14c5,.94,10,2.06,14.83,3.42A8,8,0,0,1,176,86.31a8.09,8.09,0,0,1-2.16-.3A172.25,172.25,0,0,0,128,80a172.25,172.25,0,0,0-45.84,6,8,8,0,1,1-4.32-15.4c4.82-1.36,9.78-2.48,14.82-3.42L89.83,56s0,0-.12,0h0L53.61,61.93a.17.17,0,0,0-.09,0L24,178.33,91,208a.23.23,0,0,0,.22,0L98,189.72a173.2,173.2,0,0,1-20.14-4.32A8,8,0,0,1,82.16,170,171.85,171.85,0,0,0,128,176a171.85,171.85,0,0,0,45.84-6,8,8,0,0,1,4.32,15.41A173.2,173.2,0,0,1,158,189.72L164.75,208a.22.22,0,0,0,.21,0Z"/>
-                        </svg>
-                      </span>
-                                        </a>
-                                    </li>
-
-                                    <li
-                                            class="border-2 border-secondary dark:border-dark inline-block rounded-full w-10 h-10 hover:bg-primary duration-300 relative">
-                                        <a href="https://www.facebook.com/staticmania" target="_blank">
+                                        <li
+                                                class="border-2 border-secondary dark:border-dark inline-block rounded-full w-10 h-10 hover:bg-primary duration-300 relative">
+                                            <a href="https://www.facebook.com/staticmania" target="_blank">
                       <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline dark:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000"
                              viewBox="0 0 256 256">
@@ -337,18 +345,18 @@
                                   d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"/>
                         </svg>
                       </span>
-                                            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:inline hidden">
+                                                <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:inline hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff"
                              viewBox="0 0 256 256">
                           <path
                                   d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"/>
                         </svg>
                       </span>
-                                        </a>
-                                    </li>
-                                    <li
-                                            class="border-2 border-secondary dark:border-dark inline-block rounded-full w-10 h-10 hover:bg-primary duration-300 relative">
-                                        <a href="https://www.linkedin.com/company/staticmania/" target="_blank">
+                                            </a>
+                                        </li>
+                                        <li
+                                                class="border-2 border-secondary dark:border-dark inline-block rounded-full w-10 h-10 hover:bg-primary duration-300 relative">
+                                            <a href="https://www.linkedin.com/company/staticmania/" target="_blank">
                       <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline dark:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000"
                              viewBox="0 0 256 256">
@@ -356,18 +364,18 @@
                                   d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/>
                         </svg>
                       </span>
-                                            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:inline hidden">
+                                                <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:inline hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff"
                              viewBox="0 0 256 256">
                           <path
                                   d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/>
                         </svg>
                       </span>
-                                        </a>
-                                    </li>
-                                    <li
-                                            class="border-2 border-secondary dark:border-dark inline-block rounded-full w-10 h-10 hover:bg-primary duration-300 relative">
-                                        <a href="https://www.instagram.com/staticmania" target="_blank">
+                                            </a>
+                                        </li>
+                                        <li
+                                                class="border-2 border-secondary dark:border-dark inline-block rounded-full w-10 h-10 hover:bg-primary duration-300 relative">
+                                            <a href="https://www.instagram.com/staticmania" target="_blank">
                       <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline dark:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000"
                              viewBox="0 0 256 256">
@@ -375,34 +383,36 @@
                                   d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/>
                         </svg>
                       </span>
-                                            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:inline hidden">
+                                                <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 dark:inline hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff"
                              viewBox="0 0 256 256">
                           <path
                                   d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/>
                         </svg>
                       </span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </aside>
-                    <!-- Main Article Content -->
-                    <article class="blog-details-body">
-                        {% for description in category.description_detail.all %}
-                            <div class="reveal-me">
-                                <h3 id="{{ description.id }}">
-                                    {{ description.title }}
-                                </h3>
-                                {{ description.content | safe }}
-                            </div>
-                        {% endfor %}
-                    </article>
+                        </aside>
+                        <!-- Main Article Content -->
+                        <article class="blog-details-body">
+                            {% for description in category.description_detail.all %}
+                                <div class="reveal-me">
+                                    <h3 id="{{ description.id }}">
+                                        {{ description.title }}
+                                    </h3>
+                                    {{ description.content | safe }}
+                                </div>
+                            {% endfor %}
+                        </article>
+                    </div>
+
                 </div>
+            </section>
+        {% endif %}
 
-            </div>
-        </section>
         <!--=====================================
            CTA Section
         ======================================-->

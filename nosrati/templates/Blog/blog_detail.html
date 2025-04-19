@@ -106,7 +106,7 @@
                                 </h3>
                                 <ul class="[&>*:not(:last-child)]:mb-2 md:[&>*:not(:last-child)]:mb-4"
                                     aria-label="فهرست مطالب مقاله">
-                                    {% for blog in article.article_detail_set.all|slice:":5" %}
+                                    {% for blog in article.article_detail_set.all|slice:":3" %}
                                         <li>
                                             <a href="#{{ blog.id }}"
                                                class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
