@@ -4,7 +4,8 @@
 {% block title %} محصولات {{ category.title }} | نصرتی دکور {% endblock %}
 {% block header_references %}
 
-    <meta name="description" content="با محصولات متنوع نصرتی دکور، طراحی داخلی منزل یا محل کارتان را متحول کنید. انواع کابینت مدرن، کلاسیک و محصولات چوبی با کیفیت بالا و طراحی خاص." />
+    <meta name="description"
+          content="با محصولات متنوع نصرتی دکور، طراحی داخلی منزل یا محل کارتان را متحول کنید. انواع کابینت مدرن، کلاسیک و محصولات چوبی با کیفیت بالا و طراحی خاص."/>
 
     <meta name="keywords"
           content="طراحی داخلی, دکوراسیون داخلی, کابینت آشپزخانه, کابینت مدرن, کابینت کلاسیک, مقالات طراحی داخلی, ایده دکوراسیون, چیدمان منزل, بازسازی خانه, طراحی آشپزخانه, دکوراسیون منزل, ایده کابینت, رنگ کابینت, ترند دکوراسیون"/>
@@ -28,14 +29,13 @@
                 <!-- Centered Content with Animation -->
                 <div class="text-center reveal-me">
                     <!-- Badge Component -->
-                    <div class="rv-badge">
-                        <span class="rv-badge-text">Project</span>
+                    <div class="rv-badge" aria-label="نوع محتوا">
+                        <span class="rv-badge-text">Service Categories</span>
                     </div>
 
                     <!-- Title and Description -->
-                    <h1 class="mt-3.5 sm:mt-5 lg:mt-9 mb-3 sm:mb-4 lg:mb-7"><span
-                            class="font-instrument italic">{{ category.title }}</span></h1>
-                    <p></p>
+                    <h1 class="mt-3.5 sm:mt-5 lg:mt-9 mb-3 sm:mb-4 lg:mb-7">{{ category.title }}</h1>
+                    <p>با محصولات متنوع <em>نصرتی دکور</em>, انتخاب با شماست:)</p>
                 </div>
             </div>
         </section>
@@ -93,7 +93,7 @@
                     <!-- Section Heading -->
                     <h2
                             class="text-[46px] sm:text-5xl md:text-[52px] max-md:text-left max-lg:leading-[1.33] lg:text-7xl font-normal !leading-[1.3] lg:tracking-[-2.88px] mb-9 xl:mb-[50px] text-appear">
-                        Next project
+                        محصول بعدی
                     </h2>
                     <!-- Project Preview Container -->
                     <a href="{% url 'category-page' slug=next_category.slug %}">
@@ -118,7 +118,7 @@
                                 <!-- Project Label -->
                                 <p
                                         class="uppercase text-xs text-secondary dark:text-backgroundBody font-poppins font-normal leading-6 tracking-[8px]">
-                                    Project
+                                    Next Service
                                 </p>
 
                                 <!-- Project Title Link -->

@@ -6,7 +6,8 @@
 
 {% block header_references %}
 
-    <meta name="description" content=" با محصولات متنوع نصرتی دکور، طراحی داخلی منزل یا محل کارتان را متحول کنید. انواع کابینت مدرن،{{ category.title }} ، کلاسیک و محصولات چوبی با کیفیت بالا و طراحی خاص." />
+    <meta name="description"
+          content=" با محصولات متنوع نصرتی دکور، طراحی داخلی منزل یا محل کارتان را متحول کنید. انواع کابینت مدرن،{{ category.title }} ، کلاسیک و محصولات چوبی با کیفیت بالا و طراحی خاص."/>
 
     <meta name="keywords"
           content="طراحی داخلی, دکوراسیون داخلی, کابینت آشپزخانه, کابینت مدرن, کابینت کلاسیک, مقالات طراحی داخلی, ایده دکوراسیون, چیدمان منزل, بازسازی خانه, طراحی آشپزخانه, دکوراسیون منزل, ایده کابینت, رنگ کابینت, ترند دکوراسیون"/>
@@ -37,8 +38,8 @@
                 <!-- Centered Content with Animation -->
                 <div class="text-center reveal-me">
                     <!-- Badge Component -->
-                    <div class="rv-badge">
-                        <span class="rv-badge-text">Project</span>
+                    <div class="rv-badge mb-2">
+                        <span class="rv-badge-text">Service Product</span>
                     </div>
 
                     <!-- Title and Description -->
@@ -102,7 +103,8 @@
                             {% thumbnail product.photo "800x800" quality=90 as im %}
                                 <a class="w-full" data-fancybox="gallery"
                                    data-src="{{ im.url }}"
-                                   data-caption="shombuli">
+                                   data-caption="
+                                           {% if product.content %}{{ product.content }}{% else %}{{ product.title }}{% endif %}">
                             {% endthumbnail %}
                             <figure class="overflow-hidden">
                                 {% if product.photo %}
@@ -242,7 +244,7 @@
             <div class="container">
                 <!-- FAQ Section Title -->
                 <h2 class="mb-10 md:mb-20 text-center text-appear">
-                    Frequently Asked <span class="font-instrument italic">Questions</span>
+                    سوالات متداول
                 </h2>
 
                 <!-- FAQ Items Container -->
@@ -287,7 +289,7 @@
                                     فهرست مطالب
                                 </h3>
                                 <ul class="[&>*:not(:last-child)]:mb-2 md:[&>*:not(:last-child)]:mb-4 font-amiri">
-                                    {% for description in category.description_detail.all %}
+                                    {% for description in category.description_detail.all|slice:":5" %}
                                         <li>
                                             <a href="#{{ description.id }}"
                                                class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to">

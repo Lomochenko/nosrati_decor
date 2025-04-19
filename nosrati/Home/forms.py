@@ -28,6 +28,7 @@ class AdvertisingForm(forms.Form):
         ('کمد دیواری', 'کمد دیواری'),
         ('محصولات چوبی', 'محصولات چوبی'),
         ('محصولات آشپزخانه', 'محصولات آشپزخانه'),
+        ('سایر موارد', 'سایر موارد'),
     ]
 
     service_type = forms.ChoiceField(
@@ -45,7 +46,7 @@ class AdvertisingForm(forms.Form):
         strip=False,
         widget=forms.Textarea(attrs={
             "class": "py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3",
-            "placeholder": "Tell us about your project goals and timeline",
+            "placeholder": "توضیج کوتاه",
             "name": "Message",
             "aria-label": "توضیحات پروژه",
             "aria-required": "true",
