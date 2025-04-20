@@ -1,3 +1,4 @@
+{% load static %}
 <section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-20 lg:pb-28 relative overflow-hidden">
     <div class="absolute scale-x-[2.5] scale-y-[0.75] left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2">
         <img loading="lazy" src="/static/images/gradient-bg.png" alt>
@@ -11,6 +12,12 @@
                 <div class="cta-inline-slider">
                     <div class="slide">
                         <img loading="lazy" src="/static/images/agent/01.jpg" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img src="{% static 'images/agent/02.jpg' %}" alt="تصویر مشاور 2">
+                    </div>
+                    <div class="slide">
+                        <img src="{% static 'images/agent/03.jpg' %}" alt="تصویر مشاور 3">
                     </div>
                 </div>
             </div>

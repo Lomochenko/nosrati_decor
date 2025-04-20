@@ -148,7 +148,7 @@
                                 <!-- author -->
                                 <a href="{% url 'about-page' %}" class="flex gap-3 items-center mt-10"
                                    aria-label="مشاهده پروفایل نویسنده">
-                                    <img class="author-img" src="{% static 'images/blog-img/blog-img-13.png' %}"
+                                    <img class="author-img" src="{% static 'images/photo_5775977457269196984_y.jpg' %}"
                                          alt="میثم نصرتی">
                                     <span>meysam nosrati</span>
                                 </a>
@@ -191,7 +191,7 @@
                                         <div class="banner">
                                             {% for banner in pair %}
                                                 {% if banner %}
-                                                    <a href="{{ banner.link }}" class="slide">
+                                                    <a href="{{ banner.link }}" class="slideb">
 
                                                         {% if banner.image %}
                                                             {% thumbnail banner.image "800x800" quality=90 as im %}
