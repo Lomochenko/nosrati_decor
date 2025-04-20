@@ -41,7 +41,7 @@ class ProductRecommendation(models.Model):
         return self.primary.title
 
     class Meta:
-        verbose_name = 'محصول پیشنهادی'
+        verbose_name = 'مقاله پیشنهادی'
         unique_together = ('primary', 'recommendation')
         ordering = ('primary', '-rank')
 
@@ -59,3 +59,18 @@ class ArticleDetail(models.Model):
     class Meta:
         verbose_name = 'توضیحات مقاله'
         verbose_name_plural = 'توضیحات مقالات'
+
+
+class ArticleBanner(models.Model):
+    title = models.CharField(max_length=300, db_index=True, verbose_name='عنوان بنر')
+    link = models.URLField(verbose_name='لینک', null=True, blank=True)
+    image = models.ImageField(upload_to='images/articles', verbose_name='تصویر بنر', null=True, blank=True)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, verbose_name='مقاله',
+                                related_name='article_link_set')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'لینک مقاله'
+        verbose_name_plural = 'لینک مقالات'

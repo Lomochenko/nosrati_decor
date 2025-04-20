@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import ListView, DetailView
-
+from itertools import zip_longest
 from .models import Article
 
 
@@ -33,6 +33,13 @@ class ArticleDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data()
+        article = self.get_object()
+
+        banners = article.article_link_set.all()
+        grouped_banners = list(zip_longest(*[iter(banners)] * 3))  # هر ۲ بنر یک گروه
+
+        context['banners'] = grouped_banners
+
         context['breadcrumbs'] = [
             {'title': 'خانه', 'url': reverse('home-page')},
             {'title': 'مقالات', 'url': reverse('article_page')},
