@@ -216,7 +216,9 @@ textarea {
   /* 3 */
   text-align: right !important;
 }
-
+article a{
+  font-weight: 600;
+}
 /*
 Remove the inheritance of text transform in Edge and Firefox.
 */
