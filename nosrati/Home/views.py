@@ -67,7 +67,7 @@ def Contact_us(request):
                 'آگهی جدید',
                 f'{name}\n{phone}\n{text}\n{subject}',
                 'ali.naseri3179@gmail.com',
-                ['hmtymslm50@gmail.com'],
+                ['meysam.nosrati61@gmail.com'],
                 fail_silently=False,
             )
             return redirect(reverse('home-page'))
