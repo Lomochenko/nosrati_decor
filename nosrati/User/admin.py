@@ -11,7 +11,7 @@ class UAdmin(UserAdmin):
     search_fields = ('username', 'first_name',)
     fieldsets = (
         (None, {"fields": ("username", "password")}),
-        (_("Personal info"), {"fields": ("first_name", "last_name", "email", "phone", "image", "location")}),
+        (_("Personal info"), {"fields": ("first_name", "last_name", "email", "image",)}),
         (
             _("Permissions"),
             {

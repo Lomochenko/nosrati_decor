@@ -16,28 +16,26 @@
           "name": "کابینت آشپزخانه - نصرتی دکور",
           "description": "مشاهده انواع کابینت آشپزخانه با طراحی سفارشی و متریال‌های متنوع شامل MDF، هایگلاس، ممبران، چوب و ملامینه",
           "url": "{% url 'category-page' slug=category.slug %}",
-          "mainEntity": {
-            "@type": "ItemList",
-            "itemListElement": [
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
         {% for child in category.parentcategory.all %}
             {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "Product",
-            "name": "{{ child.title }}",
-            "description": "{{ child.title }} با طراحی مدرن و کیفیت برتر",
-            "url": "{% url 'product-page' slug=child.slug %}",
-                  "category": "{{ child.parent.title }}",
-
-                  "brand": {
-                    "@type": "Brand",
-                    "name": "نصرتی دکور"
-                  }
-                }
-              },
-        {% endfor %}
-
+              "@type": "ListItem",
+              "position": {{ forloop.counter }},
+        "item": {
+          "@type": "Product",
+          "name": "{{ child.title }}",
+          "description": "{{ child.title }} با طراحی مدرن و کیفیت برتر",
+          "url": "{% url 'product-page' slug=child.slug %}",
+          "category": "{{ child.parent.title }}",
+          "brand": {
+            "@type": "Brand",
+            "name": "نصرتی دکور"
+          }
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
         ]
       },
       "isPartOf": {
@@ -59,35 +57,35 @@
             "position": 2,
             "name": "کابینت آشپزخانه",
             "item": "{% url 'category-page' slug=category.slug %}"
-          }
-        ]
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1", "p"]
-      },
-      "provider": {
-        "@type": "Organization",
-        "name": "نصرتی دکور",
-        "description": "طراحی، تولید و اجرای انواع دکوراسیون داخلی و کابینت آشپزخانه با بیش از یک دهه تجربه و بالاترین کیفیت",
-        "url": "https://www.nosratidecor.ir",
-        "telephone": "09123456789",
-        "email": "info@nosratidecor.ir",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "هشتگرد، بلوار امام",
-          "addressLocality": "هشتگرد",
-          "addressRegion": "البرز",
-          "postalCode": "3361654789",
-          "addressCountry": "IR"
-        },
-        "sameAs": [
-          "https://www.instagram.com/meysam.n.61"
-        ]
-      },
-
-    }
+      }
+    ]
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "p"]
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "نصرتی دکور",
+    "description": "طراحی، تولید و اجرای انواع دکوراسیون داخلی و کابینت آشپزخانه با بیش از یک دهه تجربه و بالاترین کیفیت",
+    "url": "https://www.nosratidecor.ir",
+    "telephone": "09123456789",
+    "email": "info@nosratidecor.ir",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "هشتگرد، بلوار امام",
+      "addressLocality": "هشتگرد",
+      "addressRegion": "البرز",
+      "postalCode": "3361654789",
+      "addressCountry": "IR"
+    },
+    "sameAs": [
+      "https://www.instagram.com/meysam.n.61"
+    ]
+  }
+}
     </script>
+
 {% endblock %}
 
 

@@ -46,7 +46,7 @@ class AdvertisingForm(forms.Form):
         strip=False,
         widget=forms.Textarea(attrs={
             "class": "py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3",
-            "placeholder": "توضیج کوتاه",
+            "placeholder": "توضیح کوتاه",
             "name": "Message",
             "aria-label": "توضیحات پروژه",
             "aria-required": "true",
